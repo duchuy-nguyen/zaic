@@ -148,8 +148,8 @@ kể cả khi một bước kiểm tra thất bại nếu đã có log. CI chỉ
 không xác nhận chất lượng model, ToolEnv thật hay submission chính thức.
 
 Khi đưa code vào repo `zaic`, đặt workflow trong `.github/workflows/` ở **gốc
-repo**; source/config/tests có thể nằm trong `LifeMate/` hoặc ở gốc. Workflow
-tự nhận diện vị trí. Chưa có bước deploy/CD. Workflow đã được chuẩn bị local;
+repo**; toàn bộ source/config/tests của Ops nằm trong `LifeMate/ops/`. Workflow
+chạy các lệnh từ thư mục này. Chưa có bước deploy/CD. Workflow đã được chuẩn bị local;
 cần push lên GitHub để xác nhận kết quả trên runner Ubuntu.
 
 ## Kiểm tra trước bàn giao / submission
