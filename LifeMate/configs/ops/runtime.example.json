@@ -1,0 +1,9 @@
+{
+  "status": "proposal_not_frozen",
+  "max_executed_calls": 8,
+  "max_repairs": 2,
+  "sample_deadline_seconds": 30,
+  "output_tokens_per_step": 512,
+  "context_tokens_max": 16384,
+  "runs_directory": "runs"
+}
