@@ -1,0 +1,71 @@
+name: LifeMate Ops CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lifemate-ops-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  offline-checks:
+    name: Python 3.11 offline checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.11'
+
+      - name: Locate LifeMate project
+        shell: bash
+        run: |
+          if [[ -f LifeMate/src/lifemate/runtime/runner.py ]]; then
+            echo 'OPS_DIR=LifeMate' >> "$GITHUB_ENV"
+          elif [[ -f src/lifemate/runtime/runner.py ]]; then
+            echo 'OPS_DIR=.' >> "$GITHUB_ENV"
+          else
+            echo 'LifeMate Ops source was not found.' >&2
+            exit 1
+          fi
+
+      - name: Validate example config and provenance
+        working-directory: ${{ env.OPS_DIR }}
+        run: python scripts/ops/check_config.py configs/ops/runtime.example.json --provenance configs/ops/provenance.example.json
+
+      - name: Run unit and integration tests
+        working-directory: ${{ env.OPS_DIR }}
+        env:
+          PYTHONPATH: src
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p runs/ci
+          python -m unittest discover -s tests/ops -v 2>&1 | tee runs/ci/tests.log
+
+      - name: Run offline mock demo
+        working-directory: ${{ env.OPS_DIR }}
+        shell: bash
+        run: |
+          set -o pipefail
+          python scripts/ops/demo.py --output-dir runs/ci/mock_demo --provenance configs/ops/provenance.example.json 2>&1 | tee runs/ci/demo.log
+
+      - name: Upload mock results and test logs
+        if: ${{ always() && env.OPS_DIR != '' }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: lifemate-ops-mock-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ env.OPS_DIR }}/runs/ci/
+          if-no-files-found: warn
+          retention-days: 7
