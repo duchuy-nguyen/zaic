@@ -1,0 +1,4 @@
+# Stable source bytes for reproducible code hashes on Windows and Linux.
+*.py text eol=lf
+*.md text eol=lf
+*.txt text eol=lf

@@ -39,3 +39,9 @@ Thumbs.db
 .idea/
 
 *.log
+
+# Private speech data and run artifacts; commit code/docs only.
+/speech_work/
+/LifeMate/speech_work/
+/train+public_test/
+/LifeMate/train+public_test/
