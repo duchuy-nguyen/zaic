@@ -1,0 +1,7 @@
+{
+  "sample_deadline_seconds": 30,
+  "max_executed_calls": 8,
+  "max_steps": 16,
+  "max_repairs": 2,
+  "output_tokens_per_step": 512
+}

@@ -1,0 +1,44 @@
+{
+  "data": {
+    "archive_sha256": null,
+    "split_name": null,
+    "split_manifest_sha256": null,
+    "catalog_sha256": null
+  },
+  "environment": {
+    "runtime_revision": null,
+    "runtime_sha256": null
+  },
+  "model": {
+    "base_revision": null,
+    "adapter_revision": null,
+    "logical_parameters": null,
+    "tokenizer_revision": null,
+    "template_sha256": null,
+    "prompt_sha256": null
+  },
+  "asr": {
+    "revision": null,
+    "config_sha256": null
+  },
+  "dependencies": {
+    "lock_sha256": null,
+    "container_digest": null
+  },
+  "hardware": {
+    "gpu": null,
+    "driver": null,
+    "cuda": null
+  },
+  "inference": {
+    "seed": null,
+    "decoding": null,
+    "precision": null,
+    "context_limit": null,
+    "transcript_source": null
+  },
+  "evaluation": {
+    "scorer_version": null,
+    "timing_mode": null
+  }
+}
