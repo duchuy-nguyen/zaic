@@ -1,8 +1,0 @@
-[project]
-name = "lifemate-ops"
-version = "0.0.0"
-description = "LifeMate Ops scaffold; implementation pending"
-requires-python = ">=3.11,<3.12"
-dependencies = []
-
-# Add and lock dependencies only after environment/model smoke checks.
