@@ -7,7 +7,7 @@ PhoWhisper-small inference, audio audit and TRAIN-only ASR evaluation. This modu
 - `src/lifemate_speech/`: audio reference loader, normalization, ASR, cache, metrics and weak entity parsers.
 - `scripts/`: `audit_audio.py`, `audit_supplement.py`, `transcribe.py`, `eval_asr.py`.
 - `tests/`: synthetic unit fixtures only; official data is not required for the test suite.
-- [Architecture and progress](docs/architecture.md), [team project plan](../PROJECT_PLAN_2026-11-03.md).
+- [Architecture and progress](docs/architecture.md), [team project plan](../LifeMate/PROJECT_PLAN_2026-11-03.md).
 
 ## Environment and private work directory
 
@@ -19,7 +19,7 @@ Run these PowerShell commands from the repository root. Set the work directory e
 $env:LIFEMATE_SPEECH_WORK_DIR = 'D:\ZAIC\speech_work'
 $env:HF_HOME = Join-Path $env:LIFEMATE_SPEECH_WORK_DIR 'hf_home'
 $DataRoot = 'D:\ZAIC\train+public_test\train+public_test'
-$SpeechCode = Join-Path (Get-Location) 'LifeMate\speech'
+$SpeechCode = Join-Path (Get-Location) 'speech'
 $SpeechPython = Join-Path $env:LIFEMATE_SPEECH_WORK_DIR '.venv\Scripts\python.exe'
 
 # Only when creating a new environment:
@@ -31,7 +31,7 @@ python -m venv (Join-Path $env:LIFEMATE_SPEECH_WORK_DIR '.venv')
 
 If the environment already exists, skip creation/installation. The committed CPU lock captures the verified Windows/Python 3.12 packages; it is not a tested CUDA/Linux lock. To install the CPU lock, use the official CPU extra index. Do not install CPU torch into a Kaggle GPU environment.
 
-`LIFEMATE_SPEECH_WORK_DIR` applies to all scripts, model cache, transcript cache and tests. Without it, the default is `LifeMate/speech_work` beside this module, ignored by Git. Paths are resolved and output/cache paths must stay inside the selected work root and outside DATA_ROOT. Audio paths from JSONL are relative to their split directory. DATA_ROOT is never modified.
+`LIFEMATE_SPEECH_WORK_DIR` applies to all scripts, model cache, transcript cache and tests. Without it, the default is `speech_work` beside this module, ignored by Git. Paths are resolved and output/cache paths must stay inside the selected work root and outside DATA_ROOT. Audio paths from JSONL are relative to their split directory. DATA_ROOT is never modified.
 
 ## Verification
 

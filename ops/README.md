@@ -140,17 +140,11 @@ vào đường submission tương lai.
 
 ## CI tự động
 
-Workflow `.github/workflows/lifemate-ops-ci.yml` chạy trên GitHub Actions khi
-push, mở/cập nhật pull request hoặc chạy thủ công. Job Ubuntu/Python 3.11 kiểm
-config/provenance mẫu, chạy toàn bộ unittest và demo mock; không cần pip install.
-Log tests/demo và manifest/results/traces mock được lưu làm artifact trong 7 ngày,
-kể cả khi một bước kiểm tra thất bại nếu đã có log. CI chỉ dùng dữ liệu giả lập;
-không xác nhận chất lượng model, ToolEnv thật hay submission chính thức.
-
-Khi đưa code vào repo `zaic`, đặt workflow trong `.github/workflows/` ở **gốc
-repo**; toàn bộ source/config/tests của Ops nằm trong `ops/`. Workflow
-chạy các lệnh từ thư mục này. Chưa có bước deploy/CD. Workflow đã được chuẩn bị local;
-cần push lên GitHub để xác nhận kết quả trên runner Ubuntu.
+Workflow `.github/workflows/repository-ci.yml` ở gốc repo chạy khi push,
+pull request hoặc thủ công. Job Ops dùng Ubuntu/Python 3.11, kiểm config,
+chạy unittest và demo mock. Log và kết quả mock lưu 7 ngày. Workflow còn có
+các job DATA, Speech và LLM riêng; xem [README repo](../README.md).
+CI không xác nhận model/ToolEnv thật hay chất lượng submission; chưa có CD.
 
 ## Kiểm tra trước bàn giao / submission
 

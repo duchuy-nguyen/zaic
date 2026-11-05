@@ -1,0 +1,101 @@
+name: Repository CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: repository-ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    name: ${{ matrix.module }} / Python 3.11
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        module: [data, speech, llm, ops]
+    env:
+      HF_HUB_OFFLINE: '1'
+      TRANSFORMERS_OFFLINE: '1'
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.11'
+
+      - name: Prepare log directory
+        run: |
+          mkdir -p artifacts
+          echo "LIFEMATE_SPEECH_WORK_DIR=$RUNNER_TEMP/speech-work" >> "$GITHUB_ENV"
+
+      - name: Install Speech test dependencies
+        if: matrix.module == 'speech'
+        shell: bash
+        run: |
+          set -o pipefail
+          python -m pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu 2>&1 | tee artifacts/speech-dependencies.log
+          python -m pip install numpy==2.2.6 2>&1 | tee -a artifacts/speech-dependencies.log
+          python -m pip check
+
+      - name: Check Python syntax and DATA assets
+        if: matrix.module == 'data'
+        shell: bash
+        run: |
+          set -o pipefail
+          python scripts/ci/check_source.py 2>&1 | tee artifacts/source.log
+          python scripts/ci/check_data.py 2>&1 | tee artifacts/data.log
+
+      - name: Run Speech fixture tests
+        if: matrix.module == 'speech'
+        shell: bash
+        run: |
+          set -o pipefail
+          python -m unittest discover -s speech/tests -v 2>&1 | tee artifacts/speech-tests.log
+
+      - name: Run LLM tests without private datasets
+        if: matrix.module == 'llm'
+        working-directory: llm
+        shell: bash
+        run: |
+          set -o pipefail
+          python -m unittest -v local_baseline.test_baseline local_baseline.test_analysis local_baseline.test_diagnostic local_baseline.test_extra_metrics local_baseline.test_gemma 2>&1 | tee ../artifacts/llm-tests.log
+
+      - name: Validate Ops configuration
+        if: matrix.module == 'ops'
+        working-directory: ops
+        shell: bash
+        run: |
+          set -o pipefail
+          python scripts/ops/check_config.py configs/ops/runtime.example.json --provenance configs/ops/provenance.example.json 2>&1 | tee ../artifacts/ops-config.log
+
+      - name: Run Ops tests and demo
+        if: matrix.module == 'ops'
+        working-directory: ops
+        env:
+          PYTHONPATH: src
+        shell: bash
+        run: |
+          set -o pipefail
+          python -m unittest discover -s tests/ops -v 2>&1 | tee ../artifacts/ops-tests.log
+          python scripts/ops/demo.py --output-dir ../artifacts/ops-mock --provenance configs/ops/provenance.example.json 2>&1 | tee ../artifacts/ops-demo.log
+
+      - name: Upload check logs and mock results
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: ci-${{ matrix.module }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: artifacts/
+          if-no-files-found: warn
+          retention-days: 7

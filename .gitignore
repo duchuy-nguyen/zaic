@@ -5,7 +5,7 @@
 *.tar.gz
 *.gz
 
-data/
+/LifeMate/data/
 datasets/
 checkpoints/
 outputs/
@@ -50,3 +50,7 @@ official/
 train+public_test.zip
 synthetic_environment/
 asr_cache/
+
+# Repository CI artifacts and root Speech work directory
+/artifacts/
+/speech_work/
