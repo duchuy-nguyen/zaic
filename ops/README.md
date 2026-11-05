@@ -143,7 +143,7 @@ vào đường submission tương lai.
 Workflow `.github/workflows/repository-ci.yml` ở gốc repo chạy khi push,
 pull request hoặc thủ công. Job Ops dùng Ubuntu/Python 3.11, kiểm config,
 chạy unittest và demo mock. Log và kết quả mock lưu 7 ngày. Workflow còn có
-các job DATA, Speech và LLM riêng; xem [README repo](../README.md).
+các job DATA, Speech và LLM riêng; xem [hướng dẫn cấu trúc repo và CI](REPOSITORY_GUIDE.md).
 CI không xác nhận model/ToolEnv thật hay chất lượng submission; chưa có CD.
 
 ## Kiểm tra trước bàn giao / submission

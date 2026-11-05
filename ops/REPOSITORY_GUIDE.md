@@ -37,6 +37,6 @@ CI xanh không xác nhận end-to-end với model/ToolEnv chính thức hoặc l
 - Speech: dùng `LIFEMATE_SPEECH_WORK_DIR` để tiếp tục dùng cache/output cũ.
   Nếu không đặt biến này, mặc định mới là `speech_work/` ở gốc repo.
 
-Chi tiết: [DATA](data/README.md), [Speech](speech/README.md),
-[LLM](llm/README.md), [Ops](ops/README.md),
-[kế hoạch](LifeMate/PROJECT_PLAN_2026-11-03.md).
+Chi tiết: [DATA](../data/README.md), [Speech](../speech/README.md),
+[LLM](../llm/README.md), [Ops](README.md),
+[kế hoạch](../LifeMate/PROJECT_PLAN_2026-11-03.md).
