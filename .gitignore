@@ -39,3 +39,8 @@ Thumbs.db
 .idea/
 
 *.log
+.venv*/
+official/
+train+public_test.zip
+synthetic_environment/
+asr_cache/
