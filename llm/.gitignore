@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+.runtime/
+data/
+runs/
+outputs/
+*.gguf
+*.part
+.env
+.env.*

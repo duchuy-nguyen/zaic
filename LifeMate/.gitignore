@@ -1,0 +1,8 @@
+# Local model/data/runtime artifacts. Source scripts and docs remain visible.
+*.gguf
+*.part
+.runtime/
+data/
+runs/
+__pycache__/
+*.pyc
