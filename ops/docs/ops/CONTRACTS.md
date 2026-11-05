@@ -1,5 +1,11 @@
 # Contract nội bộ tạm thời — chờ xác nhận
 
+Cập nhật 05/11: đã thêm bridge cho API runtime DATA đã commit và prompt/parser
+LLM trong `src/lifemate/adapters/`. Có 11 tests tích hợp source với fixture;
+chưa xác nhận runtime train/public chính thức hoặc live model. Chi tiết ở
+[HANDOFF_REVIEW_2026-11-05.md](HANDOFF_REVIEW_2026-11-05.md). Các mục chờ xác nhận
+bên dưới vẫn áp dụng cho live deployment, timing và split chính thức.
+
 Đây là kiểu Python cho demo Ops, không phải API HTTP, prompt format hay signature
 ToolEnv chính thức. Không freeze B0–B3 từ mock này.
 
