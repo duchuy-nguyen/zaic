@@ -1,0 +1,9 @@
+{
+  "n": 488,
+  "by_tech": {
+    "t1_zero_action": 205,
+    "t2_state_mutation": 259,
+    "t3_param_removal": 21,
+    "t4_asr_noise": 3
+  }
+}
