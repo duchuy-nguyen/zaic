@@ -54,7 +54,7 @@ def main():
                 write_json(directory / "campaign.json", manifest)
                 print("START_FULL_JOB", job["model"], job["expected_samples"], flush=True)
                 with (directory / f"{job['model']}_session{job['sessions']}.log").open("x", encoding="utf-8") as log:
-                    with subprocess.Popen(command, cwd=ROOT, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                    with subprocess.Popen(command, cwd=Path(__file__).resolve().parents[1], stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
                                           text=True, encoding="utf-8", errors="replace",
                                           creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0)) as process:
                         for line in process.stdout:
@@ -78,7 +78,7 @@ def main():
         for job in manifest["jobs"]:
             command += ["--"+job["model"], job["run_dir"]]
         command += ["--output", str(directory / "comparison")]
-        subprocess.run(command, cwd=ROOT, check=True)
+        subprocess.run(command, cwd=Path(__file__).resolve().parents[1], check=True)
         manifest.update(status="completed", finished_at_utc=datetime.now(timezone.utc).isoformat(),
                         report=str(directory / "comparison/REPORT.md"), csv=str(directory / "comparison/metrics.csv"))
         write_json(directory / "campaign.json", manifest)

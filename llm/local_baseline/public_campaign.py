@@ -108,7 +108,7 @@ def main():
                 job.update(status="running", sessions=job["sessions"]+1, command=command)
                 write_json(directory / "campaign.json", manifest)
                 with (directory / f"{job['model']}_session{job['sessions']}.log").open("x", encoding="utf-8") as log:
-                    with subprocess.Popen(command, cwd=ROOT, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                    with subprocess.Popen(command, cwd=Path(__file__).resolve().parents[1], stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
                                           text=True, encoding="utf-8", errors="replace",
                                           creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0)) as process:
                         for line in process.stdout:

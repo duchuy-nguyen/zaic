@@ -34,7 +34,7 @@ def main():
         print("START_JOB", job["model"], job["mode"], flush=True)
         log_path = directory / f"{job['model']}_{job['mode']}.log"
         with log_path.open("x", encoding="utf-8") as log:
-            with subprocess.Popen(command, cwd=ROOT, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+            with subprocess.Popen(command, cwd=Path(__file__).resolve().parents[1], stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
                                   text=True, encoding="utf-8", errors="replace",
                                   creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0)) as process:
                 for line in process.stdout:
@@ -63,7 +63,7 @@ def main():
     for job in jobs:
         command += [f"--{job['model']}-{job['mode']}", job["run_dir"]]
     command += ["--output", str(directory / "comparison")]
-    subprocess.run(command, cwd=ROOT, check=True)
+    subprocess.run(command, cwd=Path(__file__).resolve().parents[1], check=True)
     manifest["status"] = "completed"
     manifest["finished_at_utc"] = datetime.now(timezone.utc).isoformat()
     manifest["report"] = str(directory / "comparison/REPORT.md")

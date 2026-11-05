@@ -26,7 +26,7 @@ def main():
         write_json(directory / "campaign.json", manifest)
         try:
             with (directory / f"gemma_{job['mode']}.log").open("x", encoding="utf-8") as log:
-                with subprocess.Popen(command, cwd=ROOT, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                with subprocess.Popen(command, cwd=Path(__file__).resolve().parents[1], stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
                                       text=True, encoding="utf-8", errors="replace",
                                       creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0)) as process:
                     for line in process.stdout:
@@ -52,7 +52,7 @@ def main():
     command = [sys.executable, "-u", "-m", "local_baseline.compare_three",
                "--gemma-gold", jobs[0]["run_dir"], "--gemma-asr", jobs[1]["run_dir"],
                "--output", str(directory / "comparison")]
-    subprocess.run(command, cwd=ROOT, check=True)
+    subprocess.run(command, cwd=Path(__file__).resolve().parents[1], check=True)
     manifest.update(status="completed", finished_at_utc=datetime.now(timezone.utc).isoformat(),
                     report=str(directory / "comparison/REPORT.md"))
     write_json(directory / "campaign.json", manifest)

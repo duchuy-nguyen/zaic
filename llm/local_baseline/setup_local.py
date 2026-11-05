@@ -11,7 +11,8 @@ import subprocess
 import urllib.request
 import zipfile
 
-ROOT = Path(__file__).resolve().parents[1]
+CODE_ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(os.environ.get("LIFEMATE_ROOT", str(CODE_ROOT.parent / "LifeMate"))).resolve()
 TAG = "b11800"  # Published 2026-10-21, before the competition resource cutoff.
 
 

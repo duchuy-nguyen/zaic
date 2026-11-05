@@ -77,7 +77,7 @@ def main():
             manifest.update(sessions=manifest["sessions"]+1, command=command)
             write_json(directory / "campaign.json", manifest)
             with (directory / f"gold_session{manifest['sessions']}.log").open("x", encoding="utf-8") as log:
-                with subprocess.Popen(command, cwd=ROOT, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                with subprocess.Popen(command, cwd=Path(__file__).resolve().parents[1], stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
                                       text=True, encoding="utf-8", errors="replace",
                                       creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0)) as process:
                     for line in process.stdout:
@@ -100,7 +100,7 @@ def main():
         if output.exists():
             output = directory / datetime.now(timezone.utc).strftime("comparison_%Y%m%dT%H%M%SZ")
         subprocess.run([python, "-u", "-m", "local_baseline.diagnostic_compare", "--gold", manifest["run_dir"],
-                        "--output", str(output)], cwd=ROOT, check=True)
+                        "--output", str(output)], cwd=Path(__file__).resolve().parents[1], check=True)
         manifest.update(status="completed", finished_at_utc=datetime.now(timezone.utc).isoformat(),
                         report=str(output / "REPORT.md"), csv=str(output / "metrics.csv"),
                         cases=str(output / "ERROR_CASES.md"), analysis=str(output / "analysis.json"))

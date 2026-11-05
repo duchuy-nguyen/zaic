@@ -1,0 +1,199 @@
+{
+  "source": "LifeMate/local_baseline",
+  "destination": "llm/local_baseline",
+  "copied_python_files": 39,
+  "assets": "LifeMate (not copied)",
+  "changes": [
+    {
+      "file": "campaign.py",
+      "change": "Run Python child modules from llm so they use the new code package"
+    },
+    {
+      "file": "diagnostic_campaign.py",
+      "change": "Run Python child modules from llm so they use the new code package"
+    },
+    {
+      "file": "expanded_campaign.py",
+      "change": "Run Python child modules from llm so they use the new code package"
+    },
+    {
+      "file": "full_campaign.py",
+      "change": "Run Python child modules from llm so they use the new code package"
+    },
+    {
+      "file": "gemma_campaign.py",
+      "change": "Run Python child modules from llm so they use the new code package"
+    },
+    {
+      "file": "public_campaign.py",
+      "change": "Run Python child modules from llm so they use the new code package"
+    },
+    {
+      "file": "qwen35_campaign.py",
+      "change": "Run Python child modules from llm so they use the new code package"
+    },
+    {
+      "file": "setup_local.py",
+      "change": "Resolve model/data/runtime/runs via sibling LifeMate; optional LIFEMATE_ROOT override"
+    }
+  ],
+  "files": {
+    "__init__.py": {
+      "source_sha256": "a358f63ac46b6feed0c5bec703b9577079a41b35c3c2a289af2eaee4dc7a7610",
+      "copy_sha256": "a358f63ac46b6feed0c5bec703b9577079a41b35c3c2a289af2eaee4dc7a7610"
+    },
+    "agent.py": {
+      "source_sha256": "f95137d8726a87de9a8d846b0fe9c59c067867a7dfa89527d5f77325d3a6e180",
+      "copy_sha256": "f95137d8726a87de9a8d846b0fe9c59c067867a7dfa89527d5f77325d3a6e180"
+    },
+    "analyze_experiments.py": {
+      "source_sha256": "65aaf5707db6ba249fb8d1aa9ca7f2ac9bc16258cc437cf4d7446d0801f892ed",
+      "copy_sha256": "65aaf5707db6ba249fb8d1aa9ca7f2ac9bc16258cc437cf4d7446d0801f892ed"
+    },
+    "audit_experiments.py": {
+      "source_sha256": "1ac6cdbc03ee05917d52a648a5b02ac781b7524a8615708a81be4a9dee171586",
+      "copy_sha256": "1ac6cdbc03ee05917d52a648a5b02ac781b7524a8615708a81be4a9dee171586"
+    },
+    "backend.py": {
+      "source_sha256": "d756c4d6bd3cc2cd1a19d8fd8769fc59fe64aff2a5f4276bbf820c41019edf70",
+      "copy_sha256": "d756c4d6bd3cc2cd1a19d8fd8769fc59fe64aff2a5f4276bbf820c41019edf70"
+    },
+    "campaign.py": {
+      "source_sha256": "f58979c81d0c80aa0e6c368e4a71e7678cb30df2d3c1635734ca0b0102601598",
+      "copy_sha256": "cb1b5f576af8154dfc923da1be8dea36f1899b4800b123b10a55c01750203a63"
+    },
+    "compare.py": {
+      "source_sha256": "40af243169dfbb7673deeb9694fe9462ef2fe88fd4cd332a6b244cdf006015e4",
+      "copy_sha256": "40af243169dfbb7673deeb9694fe9462ef2fe88fd4cd332a6b244cdf006015e4"
+    },
+    "compare_three.py": {
+      "source_sha256": "07cc00009532cfe2888827552fc94cd15620f5742fe57517d591d130a43baa80",
+      "copy_sha256": "07cc00009532cfe2888827552fc94cd15620f5742fe57517d591d130a43baa80"
+    },
+    "data.py": {
+      "source_sha256": "276ab33997c88da9ce80750bcab6bcbdd938ff1447b82aeb5cf3a2dfc7f97dfb",
+      "copy_sha256": "276ab33997c88da9ce80750bcab6bcbdd938ff1447b82aeb5cf3a2dfc7f97dfb"
+    },
+    "diagnostic_campaign.py": {
+      "source_sha256": "c45297b83cf64914f75788f34fb43a4b4c4f45814b06d6b2ecce40c9360726ff",
+      "copy_sha256": "0de94c65920fa2ee6d3d79087f52df8c264b28539421cd8dd8044d3116975fef"
+    },
+    "diagnostic_compare.py": {
+      "source_sha256": "aaf58b967c2930ce50d8d9f557c0e963ab3dd8a1bcb9cc1314431d9c4ab94085",
+      "copy_sha256": "aaf58b967c2930ce50d8d9f557c0e963ab3dd8a1bcb9cc1314431d9c4ab94085"
+    },
+    "expanded_campaign.py": {
+      "source_sha256": "626b0327f77ceb24917dffb775f58e3b84a2c051317510d18ac786c8fcb33065",
+      "copy_sha256": "c44cfa560e3573d019b6c71e3368c32da129c722c76a91ae40f34c60db1b93df"
+    },
+    "expanded_compare.py": {
+      "source_sha256": "938f730e79cebd8f6b57c99764673d101c419c45513eb8a01a3e0b3b2f02eccb",
+      "copy_sha256": "938f730e79cebd8f6b57c99764673d101c419c45513eb8a01a3e0b3b2f02eccb"
+    },
+    "expanded_selection.py": {
+      "source_sha256": "a92e8172d6ac66ddb383ec036843c760acdaf114dbf16365f91239a1a1bebf52",
+      "copy_sha256": "a92e8172d6ac66ddb383ec036843c760acdaf114dbf16365f91239a1a1bebf52"
+    },
+    "experiment.py": {
+      "source_sha256": "6565d33ded8874266220aebe05157194d38889cccee2ccffa114cf57541c2202",
+      "copy_sha256": "6565d33ded8874266220aebe05157194d38889cccee2ccffa114cf57541c2202"
+    },
+    "extra_metrics.py": {
+      "source_sha256": "7c639fe91aba1bd293e1d3a3b47700a55a2a6c705b40de91ceb95ce10b6db782",
+      "copy_sha256": "7c639fe91aba1bd293e1d3a3b47700a55a2a6c705b40de91ceb95ce10b6db782"
+    },
+    "full_campaign.py": {
+      "source_sha256": "a37e79acca8e99e3d56ad983b09d8404058ba3fa992496c482781967dbf55bc9",
+      "copy_sha256": "243b6a00630bbe068d2fda42047223142da0feca5fd6a30168158f84ecd89a02"
+    },
+    "full_compare.py": {
+      "source_sha256": "223a6b5916d5d60d4ffaf8ca23eba9e4c269932ade07f80942721318775a8671",
+      "copy_sha256": "223a6b5916d5d60d4ffaf8ca23eba9e4c269932ade07f80942721318775a8671"
+    },
+    "full_selection.py": {
+      "source_sha256": "6a0ec1a0be633f4f07effb2c29c0dd26d0740c77bf47c5f01caf17bb16b52fc2",
+      "copy_sha256": "6a0ec1a0be633f4f07effb2c29c0dd26d0740c77bf47c5f01caf17bb16b52fc2"
+    },
+    "gemma_campaign.py": {
+      "source_sha256": "b9f703bcebe6eb31e7a470ce0759f29c3bcc5dcf464e2c8727b281ad933778b9",
+      "copy_sha256": "50537dae7aa1ea7eac81ab6ef5ac8e4c143a03f2e9a384218d96a2fa8e26edc8"
+    },
+    "public_campaign.py": {
+      "source_sha256": "f7eb941d8d80c85c46289c49a2e89b5e1d9146d753fd7a63f35735bb310eeab1",
+      "copy_sha256": "4995c9fe8c3ef7402909872e8a50b65e5f8492e2832693315b1f84c6e87f5f73"
+    },
+    "public_inference.py": {
+      "source_sha256": "3a970c6fa2025cf47ce962e9c48c5cd98a7fc6d41a123d0275b0466861b5fc79",
+      "copy_sha256": "3a970c6fa2025cf47ce962e9c48c5cd98a7fc6d41a123d0275b0466861b5fc79"
+    },
+    "qwen35_campaign.py": {
+      "source_sha256": "15bdf95de962eaca5bd5f42af83b3cdbd285b25b5ed7d0f27a5519af057af8be",
+      "copy_sha256": "d00f0f6d1d430b4d4eb6811cd1ff3a8e346d858c64069589f0ddf43ddaa9909c"
+    },
+    "qwen35_compare.py": {
+      "source_sha256": "2064ad0c911d54d4cb6f0807fdb18fbec4aebe19f5872c3ceff6bced64bdcec3",
+      "copy_sha256": "2064ad0c911d54d4cb6f0807fdb18fbec4aebe19f5872c3ceff6bced64bdcec3"
+    },
+    "references.py": {
+      "source_sha256": "171dd7146bbfb0bfbcd5db2349a14c6995f6880362f60efa1984aee70e62be71",
+      "copy_sha256": "171dd7146bbfb0bfbcd5db2349a14c6995f6880362f60efa1984aee70e62be71"
+    },
+    "run.py": {
+      "source_sha256": "946dfdca7eb935ec286e0528b4f5232a3bfc2a228689148b13190911d46b9289",
+      "copy_sha256": "946dfdca7eb935ec286e0528b4f5232a3bfc2a228689148b13190911d46b9289"
+    },
+    "scoring.py": {
+      "source_sha256": "5bef9f2c416bacfd71d698662630ac0e4b493a79d0f998d30028dd7c7abce01a",
+      "copy_sha256": "5bef9f2c416bacfd71d698662630ac0e4b493a79d0f998d30028dd7c7abce01a"
+    },
+    "setup_gemma.py": {
+      "source_sha256": "932705417c73921eee0e7f16025e8697da5f464792d7ee9e87cec3a21d44d22a",
+      "copy_sha256": "932705417c73921eee0e7f16025e8697da5f464792d7ee9e87cec3a21d44d22a"
+    },
+    "setup_local.py": {
+      "source_sha256": "cf8f393a7b940de3d2bea90a02056bb04bcbbb7ec81fdeb74d72f97bb206e025",
+      "copy_sha256": "eaee38c320ed186885959d384246400fdeb9324998d5b821aa32f44921406e69"
+    },
+    "setup_qwen35.py": {
+      "source_sha256": "88a924ce552dcb37c605854c9610294fc281a5401f9297645f23ad1751062c32",
+      "copy_sha256": "88a924ce552dcb37c605854c9610294fc281a5401f9297645f23ad1751062c32"
+    },
+    "setup_qwen35_2b.py": {
+      "source_sha256": "44b821319264b4a31cfe0ef2bbc59b1debc48721ac3ac46cd3e8babfb13c517b",
+      "copy_sha256": "44b821319264b4a31cfe0ef2bbc59b1debc48721ac3ac46cd3e8babfb13c517b"
+    },
+    "speech.py": {
+      "source_sha256": "fd1df0165e3c443b778a864f355d9eec665721926259296f513b6af82883afbc",
+      "copy_sha256": "fd1df0165e3c443b778a864f355d9eec665721926259296f513b6af82883afbc"
+    },
+    "test_analysis.py": {
+      "source_sha256": "25345696a590c9511c34222fec5dd5e5b0b80d6ea50abca35a29f9d13149fe3c",
+      "copy_sha256": "25345696a590c9511c34222fec5dd5e5b0b80d6ea50abca35a29f9d13149fe3c"
+    },
+    "test_baseline.py": {
+      "source_sha256": "71dfa48a9fa01cf4e3445549d22067b96df250a3f2da8a49828d82bde94f19ad",
+      "copy_sha256": "71dfa48a9fa01cf4e3445549d22067b96df250a3f2da8a49828d82bde94f19ad"
+    },
+    "test_diagnostic.py": {
+      "source_sha256": "32000ea5ce734de4f769bfac500bb8799642e0f025b4dfa8dad98aa533cd3f3b",
+      "copy_sha256": "32000ea5ce734de4f769bfac500bb8799642e0f025b4dfa8dad98aa533cd3f3b"
+    },
+    "test_expanded.py": {
+      "source_sha256": "0fe7217b755413ef713f440c346aa71dbe50693dcc6ba741bbe43e3d18492575",
+      "copy_sha256": "0fe7217b755413ef713f440c346aa71dbe50693dcc6ba741bbe43e3d18492575"
+    },
+    "test_extra_metrics.py": {
+      "source_sha256": "6d6796c2cc155f6e35ebba25be5580722576fc951c4f079ecfb35c420f50b8fb",
+      "copy_sha256": "6d6796c2cc155f6e35ebba25be5580722576fc951c4f079ecfb35c420f50b8fb"
+    },
+    "test_full.py": {
+      "source_sha256": "afa5f6f312eced7a7df633c8d9159171ffd9d5f106c84e63728e3a30b0e9716f",
+      "copy_sha256": "afa5f6f312eced7a7df633c8d9159171ffd9d5f106c84e63728e3a30b0e9716f"
+    },
+    "test_gemma.py": {
+      "source_sha256": "7a273b63d3a3f0d199bcd7abbfb120660edee62e92a7095afc6b320a540a23b0",
+      "copy_sha256": "7a273b63d3a3f0d199bcd7abbfb120660edee62e92a7095afc6b320a540a23b0"
+    }
+  },
+  "github_action": "none"
+}
