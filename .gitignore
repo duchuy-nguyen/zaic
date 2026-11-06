@@ -51,6 +51,14 @@ train+public_test.zip
 synthetic_environment/
 asr_cache/
 
+LifeMate/synthetic/*.jsonl
+LifeMate/synthetic/*.json
+LifeMate/manifests/
+
+
 # Repository CI artifacts and root Speech work directory
 /artifacts/
-/speech_work/
+
+data/synthetic/*.jsonl
+data/synthetic/*.json
+data/manifests/
