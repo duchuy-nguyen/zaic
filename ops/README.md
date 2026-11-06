@@ -1,10 +1,17 @@
 # LifeMate — Ops nền tảng (demo mock)
 
+Đã thêm adapter nối source ToolEnv từ DATA và prompt/parser từ LLM;
+kiểm tra tích hợp bằng fixture đã pass. Xem [rà soát bàn giao 05/11](docs/ops/HANDOFF_REVIEW_2026-11-05.md).
+Chưa chạy model hoặc dữ liệu chính thức qua Ops.
+
 Demo điều phối chạy offline trên CPU, chỉ dùng thư viện chuẩn Python 3.11.
-Không cần model, GPU hay dữ liệu chính thức. Đây chưa phải B0A hoặc submission:
+Demo mock không cần model, GPU hay dữ liệu chính thức. Đây chưa phải B0A hoặc submission:
 backend, environment và tên tool `demo.*` đều là giả lập phát triển.
 
 ## Setup và chạy
+
+Bộ tests adapter cần checkout đầy đủ repo với `llm/` và `data/` nằm ngang hàng
+`ops/`. Demo mock riêng vẫn chỉ cần source Ops.
 
 Chạy từ thư mục chứa README này. Dùng một Python 3.11 đã có sẵn để tạo môi trường
 riêng; không thay Python hệ thống, không cần `pip install` để chạy demo/tests:
@@ -130,9 +137,11 @@ Không có AGENTS.md áp dụng được tìm thấy trong workspace/các thư m
 không replay history, ask-stop, schema/parse repair, fake deadline, bảo toàn calls
 khi lỗi, unknown execution không retry, budgets và JSONL/manifest.
 
-Chưa kiểm chứng: local LLM server, prompt/parser, ToolEnv thật và split isolation,
-ASR, dữ liệu chính thức, evaluator, latency A30, dependency GPU và submission.
-Không có model/data download, training hay HTTP client trong implementation.
+Đã kiểm prompt/parser LLM và source runtime đã nhận bằng fixture. Chưa kiểm chứng
+live LLM server, runtime/split chính thức, ASR, dữ liệu chính thức, evaluator,
+latency A30, dependency GPU và submission.
+Không có model/data download hoặc training. Adapter LLM dùng transport được inject từ bên LLM.
+Adapter bước đầu đã có trong `src/lifemate/adapters/`; cần tài nguyên đúng split để chạy thật.
 Thay `ScriptedModel` bằng adapter triển khai `ModelBackend.respond`; thay factory
 `MockEnvironment` bằng adapter `Environment` sau khi đọc source ToolEnv chính
 thức. Prompt builder/parser do bên LLM cung cấp. Không import `lifemate.dev`
@@ -140,17 +149,11 @@ vào đường submission tương lai.
 
 ## CI tự động
 
-Workflow `.github/workflows/lifemate-ops-ci.yml` chạy trên GitHub Actions khi
-push, mở/cập nhật pull request hoặc chạy thủ công. Job Ubuntu/Python 3.11 kiểm
-config/provenance mẫu, chạy toàn bộ unittest và demo mock; không cần pip install.
-Log tests/demo và manifest/results/traces mock được lưu làm artifact trong 7 ngày,
-kể cả khi một bước kiểm tra thất bại nếu đã có log. CI chỉ dùng dữ liệu giả lập;
-không xác nhận chất lượng model, ToolEnv thật hay submission chính thức.
-
-Khi đưa code vào repo `zaic`, đặt workflow trong `.github/workflows/` ở **gốc
-repo**; toàn bộ source/config/tests của Ops nằm trong `ops/`. Workflow
-chạy các lệnh từ thư mục này. Chưa có bước deploy/CD. Workflow đã được chuẩn bị local;
-cần push lên GitHub để xác nhận kết quả trên runner Ubuntu.
+Workflow `.github/workflows/repository-ci.yml` ở gốc repo chạy khi push,
+pull request hoặc thủ công. Job Ops dùng Ubuntu/Python 3.11, kiểm config,
+chạy unittest và demo mock. Log và kết quả mock lưu 7 ngày. Workflow còn có
+các job DATA, Speech và LLM riêng; xem [hướng dẫn cấu trúc repo và CI](REPOSITORY_GUIDE.md).
+CI không xác nhận model/ToolEnv thật hay chất lượng submission; chưa có CD.
 
 ## Kiểm tra trước bàn giao / submission
 

@@ -1,0 +1,6 @@
+official/
+synthetic/synthetic_environment/
+runs/
+*.zip
+__pycache__/
+*.pyc
