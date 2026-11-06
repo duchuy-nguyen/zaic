@@ -44,3 +44,7 @@ official/
 train+public_test.zip
 synthetic_environment/
 asr_cache/
+LifeMate/synthetic/*.jsonl
+LifeMate/synthetic/*.json
+*.wav
+checkpoints/
