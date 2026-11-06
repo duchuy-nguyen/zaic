@@ -48,3 +48,5 @@ LifeMate/synthetic/*.jsonl
 LifeMate/synthetic/*.json
 *.wav
 checkpoints/
+LifeMate/manifests/
+runs/
