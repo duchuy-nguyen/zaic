@@ -1,0 +1,46 @@
+{
+  "release_version": "synthetic_phase1_v2_filtered_311",
+  "source_folder": "https://drive.google.com/drive/folders/1kTOxPgPr_uSSy2gF7_l2xkdmRh9zJPow",
+  "source_dataset_sha256": "b27d7e38d70585b71ecc362c051264f60f6dbb18dd6ab4530bd90c48e1b97198",
+  "source_records": 331,
+  "records": 311,
+  "by_technique": {
+    "t1_zero_action": 57,
+    "t2_state_mutation": 39,
+    "t3_param_removal": 53,
+    "t4_asr_noise": 162
+  },
+  "dataset_sha256": "0a16ef151bd849f24c59f7cb4eddd66f7078fefb8756e322f6926b579242b190",
+  "excluded_ids": [
+    "synth_t2_00004",
+    "synth_t2_00005",
+    "synth_t2_00007",
+    "synth_t2_00009",
+    "synth_t2_00010",
+    "synth_t2_00012",
+    "synth_t2_00014",
+    "synth_t2_00018",
+    "synth_t2_00022",
+    "synth_t2_00025",
+    "synth_t2_00028",
+    "synth_t2_00030",
+    "synth_t2_00033",
+    "synth_t2_00037",
+    "synth_t2_00041",
+    "synth_t2_00043",
+    "synth_t2_00047",
+    "synth_t2_00052",
+    "synth_t2_00057",
+    "synth_t2_00058"
+  ],
+  "excluded_samples_sha256": "ce999005d68a2756bd9ea874697066ad65133acb6a2aa9a8fda53e1be4d81b85",
+  "exclusion_counts": {
+    "semantic_conflict_review": 2,
+    "id_only_clone_user_requested": 18
+  },
+  "policy": "two_semantic_review_findings_plus_18_id_only_clones_excluded_at_user_request",
+  "split_manifest_sha256": "8c3a5f395fc95de1813483b42768bd7d29a9df691d67f5899708e4c509ce6a5e",
+  "intended_use": "text_training_candidate_with_original_TRAIN_FIT_not_ASR_training",
+  "full_semantic_quality_certified": false,
+  "official_submission": false
+}
