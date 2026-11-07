@@ -1,8 +1,8 @@
 # Báo cáo kiến trúc và tiến độ phần Speech — LifeMate
 
-Ngày cập nhật: 08/11/2026. Lượt full TRAIN hoàn tất ngày 07/11/2026.
+Ngày cập nhật: 05/11/2026.
 
-Bản tích hợp repo: code ở `speech`; đặt `LIFEMATE_SPEECH_WORK_DIR` để dùng work directory riêng. Báo cáo chứa thống kê tổng hợp; dữ liệu/run artifacts chi tiết lưu private, không nằm trong commit. Xem [hướng dẫn chạy](../README.md) và [báo cáo full TRAIN](FULL_TRAIN_ASR_REPORT_2026-11-07.md).
+Bản tích hợp repo: code ở `LifeMate/speech`; đặt `LIFEMATE_SPEECH_WORK_DIR` để dùng work directory riêng. Báo cáo nêu kết quả standalone đã đo; dữ liệu/run artifacts lưu private, không nằm trong commit. Xem [hướng dẫn chạy](../README.md).
 
 ## 1. Vị trí của Speech trong toàn hệ thống
 
@@ -43,10 +43,10 @@ Khối Speech gồm **4 phần chính**:
 
 | Phần | Xử lý gì | Code chính |
 |---|---|---|
-| **Đọc và kiểm tra audio** | Lấy đường dẫn từ JSONL; kiểm tra định dạng, độ dài và lỗi file. Xử lý cả current và toàn bộ user history. | `speech/src/lifemate_speech/io_utils.py` |
-| **Cache** | Dùng SHA256 nội dung audio, revision/config ASR và normalization version để tìm kết quả đã phiên âm. | `speech/src/lifemate_speech/cache.py` |
-| **ASR** | Khi cache chưa có, chạy PhoWhisper-small theo batch được sắp xếp theo duration. | `speech/src/lifemate_speech/asr.py` |
-| **Normalization và xuất transcript** | Chuẩn hóa NFC và khoảng trắng; xuất văn bản cùng metadata, timing, thông tin cache và lỗi. | `speech/src/lifemate_speech/normalize.py`, `speech/scripts/transcribe.py` |
+| **Đọc và kiểm tra audio** | Lấy đường dẫn từ JSONL; kiểm tra định dạng, độ dài và lỗi file. Xử lý cả current và toàn bộ user history. | `LifeMate/speech/src/lifemate_speech/io_utils.py` |
+| **Cache** | Dùng SHA256 nội dung audio, revision/config ASR và normalization version để tìm kết quả đã phiên âm. | `LifeMate/speech/src/lifemate_speech/cache.py` |
+| **ASR** | Khi cache chưa có, chạy PhoWhisper-small theo batch được sắp xếp theo duration. | `LifeMate/speech/src/lifemate_speech/asr.py` |
+| **Normalization và xuất transcript** | Chuẩn hóa NFC và khoảng trắng; xuất văn bản cùng metadata, timing, thông tin cache và lỗi. | `LifeMate/speech/src/lifemate_speech/normalize.py`, `LifeMate/speech/scripts/transcribe.py` |
 
 Luồng xử lý Speech:
 
@@ -117,24 +117,12 @@ Quy tắc hiện tại: `ENTITY_RULES_VERSION=weak-regex-v3`. So khớp tiền n
 | Smoke có history | 4 mẫu train, 20 audio gồm 4 current + 16 history; có mẫu 10 lượt user history. |
 | Evaluation smoke | 25 audio thuộc 9 mẫu train, không thiếu hypothesis hoặc có lỗi ASR. |
 | Quy tắc đánh giá v3 | Đã sửa tiền có phần lẻ/rưỡi, giờ kém/rưỡi, ngày dạng chữ và xử lý Mai kèm uncertainty. |
-| Tests | 19 fixture test đã qua trong môi trường CUDA trước lượt full. |
-| Full TRAIN ASR/evaluation | **Đã hoàn tất:** 5.036/5.036 audio, 1.545 current + 3.491 history; 0 lỗi xử lý, không thiếu/rỗng hypothesis. |
+| Tests | 18 test đã qua. |
+| Full TRAIN ASR/evaluation | **Chưa chạy.** |
 | Phiên âm PUBLIC để bàn giao LLM | **Chưa chạy** 1.933 audio (634 current + 1.299 history). |
-| CUDA/RTX 4060, GPU smoke và peak VRAM | **Đã kiểm chứng:** CUDA 12.4 / PyTorch 2.6.0+cu124, GPU FP16 batch 2; full mất 48,9 phút, peak allocated/reserved 744/796 MiB. |
+| CUDA/RTX 4060, GPU smoke và peak VRAM | **Chưa thực hiện.** |
 
-### Chất lượng trên toàn TRAIN — kết quả hiện tại
-
-| Nhóm | Số audio | WER micro | CER micro |
-|---|---:|---:|---:|
-| Tất cả | 5.036 | 46,76% | 23,23% |
-| Current | 1.545 | 45,08% | 22,63% |
-| History | 3.491 | 48,31% | 23,81% |
-
-Đây là inference/evaluation với trọng số nguyên bản, không phải huấn luyện. WER/CER giữ nguyên case và dấu câu. Transcript, audio SHA256, coverage và source/config đã kiểm chứng; 22 audio trùng smoke GPU có cùng transcript. Xem [báo cáo tổng hợp](FULL_TRAIN_ASR_REPORT_2026-11-07.md) để biết macro metrics, lỗi thực thể kèm mẫu số và provenance.
-
-Smoke 20 mẫu/22 audio CPU FP32 so với GPU FP16 có 1 audio khác nhau. Mức lệch đã được chấp nhận trước full. Hai lượt dùng cùng source/weights, chỉ khác device/dtype; không coi đây là ablation chỉ thay device.
-
-### Chất lượng trên bộ smoke 25 audio — số liệu lịch sử
+### Chất lượng trên bộ smoke 25 audio
 
 | Nhóm | Số audio | WER micro | CER micro |
 |---|---:|---:|---:|
@@ -167,15 +155,11 @@ Chi phí không chỉ phụ thuộc số file: Whisper short-form đệm tới 3
 
 Full audit cho thấy 198 conversation trong train + public có tổng độ dài tín hiệu current/history trên 30 giây. Độ dài tín hiệu cũng không phải latency inference; đây là nhóm cần chú ý khi thiết kế phép đo runtime.
 
-Trên full TRAIN GPU, latency phân bổ mỗi file có p50/p95/max khoảng 0,559/0,975/1,576 giây; tổng phân bổ ASR mỗi sample khoảng 1,499/5,360/8,499 giây. Không sample nào có tổng phân bổ ASR trên 30 giây, nhưng đây vẫn không phải wall time end-to-end hoặc chứng nhận giới hạn thi đấu. Chi tiết ở [báo cáo full](FULL_TRAIN_ASR_REPORT_2026-11-07.md).
-
 ### 7.2. Từ “mai” và thời gian tương đối
 
 Trên bộ smoke 25 audio, weak diagnostic ghi nhận **3/4 câu có phrase tham chiếu “mai” bị thiếu/sai phrase**; không phải thống kê 3/4 token hoặc tỷ lệ lỗi toàn train. Các cụm khác: “chiều nay” sai 1/2 câu, “hôm nay” sai 1/1 câu. Xem `relative_time.per_reference_phrase` trong metrics - artifact local: `speech_work/eval_smoke_v3/metrics.json`.
 
 Nhầm “mai” thành “may” hoặc mất từ thời gian có thể làm sai yêu cầu nghiệp vụ. Tuy nhiên, mẫu nhỏ và “Mai” có thể là tên riêng. V3 loại trường hợp sau danh xưng cô/chị/bác/anh…, còn bare Mai vẫn gắn uncertainty. Cần xác nhận trên TRAIN lớn hơn và nghe lại trước khi dùng evidence cho quyết định B4; không tự sửa transcript hiện tại.
-
-Full TRAIN đã bổ sung evidence: phrase “mai” thiếu/sai ở **144/347 câu**; toàn bộ relative-time diagnostic sai **479/1.358 câu**. Đây vẫn là weak labels, không phải annotation của con người hoặc bằng chứng mọi lỗi nghiệp vụ đều do ASR. Cần nghe/review và paired B0–B1 trước khi quyết định B4.
 
 ### 7.3. Giới hạn của weak parser
 
@@ -183,20 +167,18 @@ Phần lẻ tiền thiếu đơn vị, rưỡi sau nhiều đơn vị, giờ thi
 
 ## 8. Bước tiếp theo đang chờ xác nhận
 
-1. Bàn giao bộ artifact TRAIN và provenance qua storage private; dùng báo cáo aggregate trong repo để review tiến độ.
-2. Review/nghe các worst samples và parser uncertainties, tập trung tên/địa chỉ/tiền/“mai”; giữ nguyên transcript gốc.
-3. Nối provider Speech với contract adapter OPS, chốt frozen DATA IDs và bảo đảm current/history, lỗi, deadline không bị rơi.
-4. Sau khi B0 được freeze, phối hợp LLM/OPS/DATA chạy B1 trên frozen validation, lấy S0_AUDIO và so paired với S0_TEXT.
-5. Khi được xác nhận phạm vi, chạy ASR PUBLIC đủ 1.933 audio bằng cấu hình đã chốt để bàn giao current/history transcripts và provenance. Không dùng public để tune hoặc tính WER/CER; việc này chưa thực hiện.
-6. Phối hợp OPS đo end-to-end không cache trên hardware mục tiêu; phép đo full TRAIN ASR theo global batches không thay thế bước này.
+1. Kiểm tra khả năng dùng PyTorch CUDA trong môi trường ảo riêng trên RTX 4060.
+2. Nếu cài được CUDA, chạy smoke 20 mẫu CPU/GPU, so transcript và peak VRAM; chờ xác nhận mức lệch trước full.
+3. Sau xác nhận, chạy full TRAIN bằng backend đã chốt; nếu không cài được CUDA thì dùng CPU với resume theo phạm vi được xác nhận.
+4. Sau full TRAIN, đánh giá đủ 5.036 audio và bàn giao metrics, worst samples, báo cáo lỗi thực thể kèm mẫu số; thống kê riêng lỗi “mai” và timing theo số audio/history mỗi sample.
+5. Khi được xác nhận phạm vi, chạy ASR PUBLIC đủ 1.933 audio bằng cấu hình đã chốt để bàn giao current/history transcripts và provenance cho khối LLM/OPS. Không dùng public để tune hoặc tính WER/CER; đây là việc riêng, chưa được thực hiện trong lần này.
+6. Phối hợp OPS đo end-to-end không cache trên hardware mục tiêu. Theo plan, B1/S0_AUDIO được đo trên frozen validation TRAIN sau B0; phiên âm public là bước phục vụ pipeline public/submission, không thay thế phép đo B1 có reference.
 
-Đã hoàn tất GPU smoke, full TRAIN inference và full TRAIN evaluation. Bàn giao tích hợp B1, public inference và target-hardware end-to-end vẫn là các bước tiếp theo; lượt full này không tự hoàn thành các gate đó.
+Hiện đã dừng sau A–B theo yêu cầu; chưa thực hiện các bước trên.
 
 ## 9. Tài liệu và kết quả liên quan
 
-- [Project plan](../../LifeMate/PROJECT_PLAN_2026-11-03.md).
-- [Báo cáo tổng hợp full TRAIN GPU](FULL_TRAIN_ASR_REPORT_2026-11-07.md).
-- [Lock môi trường Windows CUDA đã kiểm chứng](../requirements-cuda-win-py312.lock.txt).
+- [Project plan](../../PROJECT_PLAN_2026-11-03.md).
 - Báo cáo full audit - artifact local: `speech_work/audit/audio_audit_report.md`.
 - Báo cáo smoke và evaluation v2 - artifact local: `speech_work/step4_final_smoke_report.md`.
 - Báo cáo sửa quy tắc v3 - artifact local: `speech_work/eval_smoke_v3/v3_review_report.md`.
