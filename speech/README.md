@@ -11,7 +11,7 @@ PhoWhisper-small inference, audio audit and TRAIN-only ASR evaluation. This modu
 
 ## Environment and private work directory
 
-Target Python 3.11/3.12; verified locally on Windows/Python 3.12.14. Linux/Kaggle, CUDA and Python 3.11 have not been directly tested. Use a separate virtual environment.
+Target Python 3.11/3.12; verified locally on Windows/Python 3.12.14 with CPU and CUDA 12.4 on RTX 4060 Laptop. Linux/Kaggle and Python 3.11 have not been directly tested locally. Use a separate virtual environment.
 
 Run these PowerShell commands from the repository root. Set the work directory explicitly so moving the code does not move the existing model/cache/output artifacts:
 
@@ -29,7 +29,21 @@ python -m venv (Join-Path $env:LIFEMATE_SPEECH_WORK_DIR '.venv')
 & $SpeechPython -m pip check
 ```
 
-If the environment already exists, skip creation/installation. The committed CPU lock captures the verified Windows/Python 3.12 packages; it is not a tested CUDA/Linux lock. To install the CPU lock, use the official CPU extra index. Do not install CPU torch into a Kaggle GPU environment.
+If the environment already exists, skip creation/installation. The CPU lock captures the verified Windows/Python 3.12 CPU packages; a separate [CUDA lock](requirements-cuda-win-py312.lock.txt) captures the tested Windows CUDA environment. Neither is a tested Linux/Kaggle lock. To install the CPU lock, use the official CPU extra index. Do not install CPU torch into a GPU environment.
+
+### Verified CUDA environment
+
+Keep the existing CPU environment separate. From the repository root, after setting the variables above:
+
+```powershell
+python -m venv (Join-Path $env:LIFEMATE_SPEECH_WORK_DIR '.venv-cu124')
+$SpeechGpuPython = Join-Path $env:LIFEMATE_SPEECH_WORK_DIR '.venv-cu124\Scripts\python.exe'
+& $SpeechGpuPython -m pip install -r (Join-Path $SpeechCode 'requirements-cuda-win-py312.lock.txt') --extra-index-url https://download.pytorch.org/whl/cu124
+& $SpeechGpuPython -m pip check
+& $SpeechGpuPython -c "import torch; assert torch.cuda.is_available(); print(torch.__version__, torch.cuda.get_device_name(0))"
+```
+
+Skip environment creation/installation if this verified environment already exists.
 
 `LIFEMATE_SPEECH_WORK_DIR` applies to all scripts, model cache, transcript cache and tests. Without it, the default is `speech_work` beside this module, ignored by Git. Paths are resolved and output/cache paths must stay inside the selected work root and outside DATA_ROOT. Audio paths from JSONL are relative to their split directory. DATA_ROOT is never modified.
 
@@ -54,7 +68,7 @@ Use a new output directory or `--resume`; the CLI refuses to overwrite an existi
 
 The ASR baseline remains `vinai/PhoWhisper-small`, revision `a86b604c346caf7148c37512eafe783a16420adb`. Model weight SHA256 is checked against revision LFS metadata: `9ec6f07c5bd321fc8f477cf778c43c3fd94b0e33a9f20283fc61cc6d22cbfded`.
 
-Greedy settings: `num_beams=1`, `do_sample=False`, `language=vi`, `task=transcribe`, seed 0, eager attention and deterministic algorithms. CPU uses float32; CUDA defaults to float16 but is not yet validated. The repository integration only adds configurable work paths; it does not change decoding or normalization. Global code hashes differ from historical standalone runs because they include source paths/evaluation changes.
+Greedy settings: `num_beams=1`, `do_sample=False`, `language=vi`, `task=transcribe`, seed 0, eager attention and deterministic algorithms. CPU uses float32; CUDA float16 was validated by 20-sample CPU/GPU comparison and full TRAIN inference. The repository integration only adds configurable work paths; it does not change decoding or normalization. Global code hashes differ from historical standalone runs because they include source paths/evaluation changes.
 
 - Audio must be 16 kHz mono PCM 16-bit. Missing/corrupt/truncated files produce explicit errors.
 - Audio over 30 s produces `AudioTooLong` and `audio_too_long`; no implicit truncation or chunking.
@@ -80,7 +94,7 @@ Audit thresholds are diagnostic heuristics, not tuned on public_test: duration <
 & $SpeechPython (Join-Path $SpeechCode 'scripts\eval_asr.py') --data-root $DataRoot --transcripts (Join-Path $env:LIFEMATE_SPEECH_WORK_DIR 'smoke_final_limit5_cold\transcripts.jsonl') (Join-Path $env:LIFEMATE_SPEECH_WORK_DIR 'smoke_final_history_cold\transcripts.jsonl') --out (Join-Path $env:LIFEMATE_SPEECH_WORK_DIR 'repo_eval_smoke') --scope transcript_samples
 ```
 
-Default `--scope all_train` includes all TRAIN references; it has NOT been run. Smoke uses `transcript_samples`, including all current/history references of selected samples, even missing/error hypotheses. Join is `(sample_id, kind, turn_index)`; duplicate/unknown keys and public_test hypotheses are rejected. Gold is evaluation-only, never supplied to ASR or cache.
+Default `--scope all_train` includes all TRAIN references; full evaluation has completed for 5,036 audio. Smoke uses `transcript_samples`, including all current/history references of selected samples, even missing/error hypotheses. Join is `(sample_id, kind, turn_index)`; duplicate/unknown keys and public_test hypotheses are rejected. Gold is evaluation-only, never supplied to ASR or cache.
 
 WER retains case/punctuation and splits on whitespace (not linguistic Vietnamese word segmentation). CER includes normalized spaces. Missing/error hypotheses are empty strings and count as deletions. Empty references use max(1,n) denominators; empty groups report null. Scores include micro/macro for all/current/history.
 
@@ -95,6 +109,12 @@ These diagnostics never modify transcript/normalization or WER/CER. Outputs incl
 
 ## Current evidence and pending work
 
-Historical standalone code: full audit 6,969 WAV; 25-audio/9-sample CPU smoke with cold/warm cache; WER micro 35.36%, CER micro 16.30% on that SMALL smoke set. Full TRAIN/public inference, full TRAIN evaluation, CUDA/RTX 4060 smoke and peak VRAM have not run. The source integration is checked with unit tests and smoke evaluation of existing private transcripts; it is not a new model benchmark.
+Full TRAIN inference and evaluation completed on 2026-11-07: 5,036/5,036 audio (1,545 current + 3,491 history), no processing errors or missing/empty hypotheses. WER micro 46.76%, CER micro 23.23%, retaining case/punctuation. This is inference with unchanged pretrained weights, not model training. See the [aggregate full TRAIN report](docs/FULL_TRAIN_ASR_REPORT_2026-11-07.md).
 
-Private audio, gold/hypotheses, evaluation samples, models, caches, environments and run outputs are intentionally absent from Git. Architecture contains aggregate results only; referenced local run artifacts require team-private storage. Full/GPU work remains gated by the user's confirmation.
+GPU run wall was 48.9 minutes with `--device cuda --batch-size 2 --no-cache --resume --local-files-only`; no `--limit`. PyTorch peak allocated/reserved was 744/796 MiB. It used the same source/config as accepted CPU/GPU smoke; all 22 overlapping GPU-smoke transcripts matched. Cross-sample batch allocation remains distinct from live end-to-end latency.
+
+Earlier evidence remains historical: full audit 6,969 WAV; 25-audio/9-sample CPU smoke with WER 35.36% and CER 16.30%; 20-sample/22-audio CPU FP32 vs GPU FP16 comparison differed on one audio. The two smoke rosters differ, so their scores cannot be compared directly with each other or the full TRAIN score. 19 fixture tests passed in the CUDA environment before the full run.
+
+Public inference, B1/S0_AUDIO paired against B0, the real OPS adapter and live target-hardware end-to-end certification remain pending. No new ASR inference or model/config change is performed by publishing this documentation.
+
+Private audio, gold/hypotheses, evaluation samples, models, caches, environments and detailed run outputs are intentionally absent from Git. Committed documentation contains aggregate statistics and hashes only; referenced local artifacts require team-private storage. Further public/B1/optimization work requires the agreed scope and gates.
