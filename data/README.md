@@ -1,5 +1,10 @@
 # DATA — LifeMate
 
+Bản đã lọc 311 mẫu cho pipeline text-training: xem
+[release, exclusions và cách kiểm checksum](releases/synthetic_phase1_v2_filtered_311/README.md).
+Bản này loại 20 mẫu từ merge v2; không thay dữ liệu gốc hoặc chứng nhận nhãn
+đúng toàn bộ.
+
 Chạy lệnh DATA từ thư mục `data/`, đặt `PYTHONPATH=src` khi dùng
 `python -m lifemate.synthetic.<module>`. Code được chuyển nguyên trạng từ
 `LifeMate/src`, `LifeMate/scripts`, `LifeMate/manifests`, `LifeMate/synthetic`.

@@ -1,0 +1,25 @@
+{
+  "dataset_sha256": "0a16ef151bd849f24c59f7cb4eddd66f7078fefb8756e322f6926b579242b190",
+  "static": {
+    "records": 311,
+    "error_count": 0,
+    "review_count": 0,
+    "advisory_count": 0,
+    "training_ready": false
+  },
+  "replay": {
+    "records": 311,
+    "replayed": 254,
+    "zero_call_structure_checked": 57,
+    "errors": [],
+    "runtime_source_commit": "cd97dedff1b169350248a0617b183df73b17eb7f",
+    "scope": "synthetic_label_replay_not_semantic_or_official_quality_certification"
+  },
+  "not_checked": [
+    "full_independent_semantic_adjudication",
+    "official_train_source_state_provenance",
+    "original_train_VAL_text_leakage",
+    "audio_text_alignment",
+    "training_quality_on_VAL"
+  ]
+}
