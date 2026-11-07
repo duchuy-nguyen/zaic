@@ -1,5 +1,8 @@
 # Synthetic phase1 v2 — filtered 311
 
+Bản mới từ DATA v2.1: [551 text-training candidates](../synthetic_phase1_v21_text_551/RELEASE.md).
+Chọn một release; không cộng cả hai vào train vì có overlap nguồn.
+
 Bản text-training candidate từ merge DATA v2 331 mẫu: loại 2 mẫu có xung đột
 qualifier/ask độ tin cậy cao và loại thêm 18 bản sao chỉ khác ID theo yêu cầu
 người phụ trách phiên làm việc. **18 mẫu chỉ-ID không được coi là nhãn sai đã

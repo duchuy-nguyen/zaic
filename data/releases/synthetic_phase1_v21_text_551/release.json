@@ -1,0 +1,28 @@
+{
+  "release_version": "synthetic_phase1_v21_text_551",
+  "source_archive_name": "synthetic_phase1_v21-20261107T165754Z-1-001.zip",
+  "source_archive_sha256": "d3c96bc155063f9045a102552e54342ff53ce814516e0299ff477fcd276f9d8f",
+  "source_dataset_sha256": "968a2f3153f0e39ece215d816b12c3178cf67c1dac1e9e54b045a1513939d062",
+  "source_records": 552,
+  "records": 551,
+  "by_technique": {
+    "t1_zero_action": 78,
+    "t2_state_mutation": 22,
+    "t3_param_removal": 84,
+    "t4_asr_noise": 367
+  },
+  "dataset_sha256": "8c24380c7530400350985eba3b6f3a234b343528a9b3580798fb4f97b2f0c6ed",
+  "excluded_ids": [
+    "synth_v21_t2_00016"
+  ],
+  "excluded_samples_sha256": "fc635d56be5d82b0549b64639a00e22d56c0c17d8154480f4123156f61f78414",
+  "training_usage_sha256": "2c47b13b5355e7dd8debfdfa024c136083067dc025f313faf9151b857219f446",
+  "text_only_records": 451,
+  "unchanged_text_records_requiring_audio_verification": 100,
+  "split_manifest_sha256": "8c3a5f395fc95de1813483b42768bd7d29a9df691d67f5899708e4c509ce6a5e",
+  "intended_use": "synthetic_text_training_candidate_with_pinned_TRAIN_FIT",
+  "policy": "quarantine_one_unresolved_semantic_review_candidate_without_relabeling",
+  "full_semantic_quality_certified": false,
+  "training_impact_measured": false,
+  "official_submission": false
+}
