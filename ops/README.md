@@ -1,5 +1,11 @@
 # LifeMate — Ops nền tảng (demo mock)
 
+Đã có [khung hệ thống inference](docs/ops/SYSTEM_SCAFFOLD.md) gồm prepared
+text/audio boundary, optional lexical tool/example retrieval, grounding guard,
+agent harness và export từ cùng session. Chạy fixture không cần GPU bằng
+`python ops/scripts/ops/run_system.py --factory lifemate.dev.system_demo:build_system --input ops/configs/ops/system_demo_input.jsonl --output-dir ops/runs/system_demo_001`
+từ repository root. Actual ASR/model/official split vẫn cần adapter và đo kiểm.
+
 Đã thêm adapter nối source ToolEnv từ DATA và prompt/parser từ LLM;
 kiểm tra tích hợp bằng fixture đã pass. Xem [rà soát bàn giao 05/11](docs/ops/HANDOFF_REVIEW_2026-11-05.md).
 Chưa chạy model hoặc dữ liệu chính thức qua Ops.

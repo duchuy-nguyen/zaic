@@ -17,7 +17,7 @@ def prepared_view(sample):
     installed = {name: {'tools': deepcopy(app['tools'])}
                  for name, app in context['installed_apps'].items()}
     clean_context = {k: deepcopy(context[k]) for k in
-                     ('current_time', 'timezone', 'location', 'user_profile') if k in context}
+                     ('current_time', 'timezone', 'location', 'current_location', 'user_profile') if k in context}
     clean_context['installed_apps'] = installed
     history = [{k: deepcopy(turn[k]) for k in
                 ('role', 'text', 'tool_calls', 'tool_results') if k in turn}
@@ -27,11 +27,14 @@ def prepared_view(sample):
 
 
 class NativeLLMBackend:
-    def __init__(self, transport, catalog: dict, *, clock=time.monotonic):
+    def __init__(self, transport, catalog: dict, *, clock=time.monotonic, augment_prompt=None):
         from local_baseline.agent import allowed_schemas, initial_messages, parse_decision
         self.transport, self.catalog, self.clock = transport, deepcopy(catalog), clock
         self.allowed_schemas, self.initial_messages = allowed_schemas, initial_messages
         self.parse_decision = parse_decision
+        # Optional system-layer hook. It cannot execute tools or change the
+        # environment allowlist; execution authorization lives at that boundary.
+        self.augment_prompt = augment_prompt
 
     def respond(self, request: ModelRequest):
         deadline = self.clock() + request.remaining_seconds
@@ -60,6 +63,8 @@ class NativeLLMBackend:
                 messages.append({'role': 'user', 'content':
                     'Đề xuất trước chưa được thực thi. Hãy sửa định dạng/schema, trả tối đa một tool call '
                     'hợp lệ hoặc kết thúc khi đã hoàn tất. Chi tiết: ' + json.dumps(feedback, ensure_ascii=False)})
+            if self.augment_prompt is not None:
+                messages, tools = self.augment_prompt(request, messages, tools)
             if self.clock() >= deadline:
                 return ModelError('model_error')
             response, _usage = self.transport.generate(messages, tools, deadline,

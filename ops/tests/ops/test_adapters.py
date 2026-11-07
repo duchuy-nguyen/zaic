@@ -175,3 +175,22 @@ class AdapterTests(unittest.TestCase):
         self.assertTrue(execution.executed)
         self.assertFalse(execution.observation.ok)
         self.assertEqual(len(env.session_output()['tool_calls']), 1)
+
+    def test_system_scaffold_with_committed_runtime_and_grounding_repair(self):
+        from lifemate.system import LifeMateSystem, FactSource, GroundingRule, ToolSelector
+        transport = Transport([
+            response('notes.append', {'note_id': 'invented', 'content': 'bad'}),
+            response('notes.list'),
+            response('notes.append', {'note_id': 'fixture_note', 'content': 'new'}), response()])
+        system = LifeMateSystem(catalog=self.catalog, environment_factory=self.factory,
+            transport=transport, selector=ToolSelector(1, {'notes.append': ['notes.list']}),
+            grounding_rules=(GroundingRule('notes.append', 'note_id',
+                (FactSource('notes.list', ('notes', '*', 'id')),)),))
+        result = system.run(self.sample)
+        self.assertEqual(result.diagnostics['status'], 'finish')
+        self.assertEqual(result.diagnostics['repairs_used'], 1)
+        self.assertEqual(len(self.environments), 1)
+        actual = self.environments[0].session_output()
+        self.assertEqual(result.submission, {'id': self.sample.sample_id, **actual})
+        self.assertEqual([c['name'] for c in actual['tool_calls']], ['notes.list', 'notes.append'])
+        self.assertNotIn('SECRET', json.dumps(transport.requests))
