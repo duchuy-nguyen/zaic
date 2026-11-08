@@ -1,0 +1,127 @@
+{
+  "release": "lifemate-baseline-public50.2",
+  "code_only": true,
+  "no_model_or_dataset_files": true,
+  "files": {
+    ".gitignore": {
+      "bytes": 377,
+      "sha256": "d68f198ef5c8aedd7889137abe44a45a9e16c3430a85519ae585472651b4cb3a"
+    },
+    "assets.manifest.json": {
+      "bytes": 18574,
+      "sha256": "6d6ba9e50c338127d6733fbcb1c08c2a9088b3c9300313487cc7454b94a922ac"
+    },
+    "baseline50/__init__.py": {
+      "bytes": 94,
+      "sha256": "70938fed9cc55ecb16bf418caac91d533350bcd8509b0714b2c3a42c016a384c"
+    },
+    "baseline50/__main__.py": {
+      "bytes": 29,
+      "sha256": "7c86b1281643b718915bfa2a6489fc97ca04932e696d169d233840f5e09a7025"
+    },
+    "baseline50/actor.py": {
+      "bytes": 9434,
+      "sha256": "b3df06d870c1e5f25ec3bda0461f77b1ed2faa9e3405dfea4bbebeade6011e22"
+    },
+    "baseline50/asr.py": {
+      "bytes": 6140,
+      "sha256": "6fd384807ba5ea255f523b27d3a3d39cd0e029a938d1840870b4ec0bf406aac0"
+    },
+    "baseline50/assets.manifest.json": {
+      "bytes": 18574,
+      "sha256": "6d6ba9e50c338127d6733fbcb1c08c2a9088b3c9300313487cc7454b94a922ac"
+    },
+    "baseline50/backend.py": {
+      "bytes": 5043,
+      "sha256": "5c285fea5598a24cd7454a41a033a7f44c22ec4b428a0918c758a4b48643ac97"
+    },
+    "baseline50/io.py": {
+      "bytes": 5419,
+      "sha256": "f2c139ebbf7c60b60c90c898a0251f010fbe63f5c254dd89f4b859fb50ab0477"
+    },
+    "baseline50/policy.py": {
+      "bytes": 8035,
+      "sha256": "fcd772f071d72f37d4493209985e5d6d64a45a6ec307b288a73d4094b941f747"
+    },
+    "baseline50/prompt.py": {
+      "bytes": 2657,
+      "sha256": "0af082a87d1ef0ca22ce996e94775a8963ce8944ef3d4c6eacb92fd4b77a0d1b"
+    },
+    "baseline50/run.py": {
+      "bytes": 11047,
+      "sha256": "0687fbe2e0314ec5e51f68e99a8a1c6b696cb4cb48e8f0aff4836f232f004501"
+    },
+    "baseline50/scoring.py": {
+      "bytes": 3827,
+      "sha256": "5bef9f2c416bacfd71d698662630ac0e4b493a79d0f998d30028dd7c7abce01a"
+    },
+    "baseline50/SOLUTION_DESCRIPTION.txt": {
+      "bytes": 648,
+      "sha256": "7e60bb9f513a6952dc3a9e7cf10f4088accdf73990ff8c09948ef913d97f2f6d"
+    },
+    "config.example.json": {
+      "bytes": 205,
+      "sha256": "fb003c2e54350f05324f17be4eece9dfe9f1ccb625205dec3695020c7a01fc54"
+    },
+    "PACKAGING_VERIFICATION.json": {
+      "bytes": 427,
+      "sha256": "1392660a6d08b84abaff5568858f608b7483fbd03d451f281e2a33bf2031c434"
+    },
+    "pyproject.toml": {
+      "bytes": 352,
+      "sha256": "ec2577a0de15684668a21f7335328e329529fea779ad3017ca76d8bdde152a6d"
+    },
+    "README.md": {
+      "bytes": 10786,
+      "sha256": "10fa40d8d6cdba60a87f7b51fb635e9fa5d2fa6543a5f614831659e09dbf65c4"
+    },
+    "requirements-inference.lock.txt": {
+      "bytes": 457,
+      "sha256": "a6ccdf74784eefd1ae9e4c5dbf61b661f3a5140cfd4766ceabdafe7af0853862"
+    },
+    "SOLUTION_DESCRIPTION.txt": {
+      "bytes": 648,
+      "sha256": "7e60bb9f513a6952dc3a9e7cf10f4088accdf73990ff8c09948ef913d97f2f6d"
+    },
+    "SOURCE_PROVENANCE.json": {
+      "bytes": 1122,
+      "sha256": "258ea7ed6d4a26cedb241fdab400bcf0131152dff8891115e7561d8b1ced62d1"
+    },
+    "tests/test_baseline.py": {
+      "bytes": 5751,
+      "sha256": "d9401a8d19821a7ebb2f718bd30253c929433aaab959adc692c140cb5bb5008d"
+    },
+    "tools/audit_git_payload.py": {
+      "bytes": 1781,
+      "sha256": "316ad18f2c3d0f826db0467b6b7cd1018d688905fa93d12015f025e378a0a050"
+    },
+    "tools/unpack_assets.py": {
+      "bytes": 3224,
+      "sha256": "af9c0c69bc22bb2a45b1645d1e3e96dfd72a9744ed42ac4a9b7577eb4e75e1b2"
+    },
+    "training_recipe.json": {
+      "bytes": 1820,
+      "sha256": "5dd1990e75d226de4fa77368f4c83bc4bdac5eff7e36c1ef5e49f7c3918fc2de"
+    },
+    "training_reference/medium_v3_prepare.py": {
+      "bytes": 5442,
+      "sha256": "58456a64c3a45140033088fad215a8d2bbc7e0ad7e4dda3f7e13993888b4d725"
+    },
+    "training_reference/medium_v3_train.py": {
+      "bytes": 23704,
+      "sha256": "90f0f18723df5cf17c001d65b07d62c795d12ab83670a6c4085e59ce7af6aa2c"
+    },
+    "training_reference/qwen_v2_prepare.py": {
+      "bytes": 9260,
+      "sha256": "4c3cadacc96d2c3147a11a34d0237ee67ca67e6f287374ef5adc0e0639d63bbb"
+    },
+    "training_reference/qwen_v2_train.py": {
+      "bytes": 20450,
+      "sha256": "fd5c1161c82ae92c31c862e8d9a12697e414780441a2d91306921608b2aa2cda"
+    },
+    "training_reference/README.md": {
+      "bytes": 1248,
+      "sha256": "b312811ac357bbb0804598b367e20fd301501c0abe6022cb5d3156f322fd3c9d"
+    }
+  }
+}

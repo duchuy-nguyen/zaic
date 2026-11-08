@@ -1,0 +1,6 @@
+{
+  "assets_dir": "./private_assets",
+  "dataset_dir": "../../LifeMate/data/lifemate-v3.2.0/train+public_test",
+  "output_dir": "./outputs",
+  "llama_server": "./private_assets/runtime/llama-server.exe"
+}

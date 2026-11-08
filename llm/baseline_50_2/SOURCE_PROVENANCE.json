@@ -1,0 +1,16 @@
+{
+  "public_score": 50.2,
+  "public_score_source": "user-reported in chat; no portal verification",
+  "submitted_jsonl_sha256": "e3e86479f7e2f890ff42a492f1f077464470812ee47d8241ef85a91203ccce15",
+  "source_files_sha256": {
+    "llm/experiments/lifemate_v2_20261106/agent_v2.py": "7f3c0e4826a63d4527819c8ae29d2630af0f7feed474c92f9816ed65883118f3",
+    "llm/experiments/lifemate_v2_20261106/policy.py": "fcd772f071d72f37d4493209985e5d6d64a45a6ec307b288a73d4094b941f747",
+    "llm/experiments/lifemate_v2_20261106/prepare.py": "4c3cadacc96d2c3147a11a34d0237ee67ca67e6f287374ef5adc0e0639d63bbb",
+    "llm/local_baseline/backend.py": "d756c4d6bd3cc2cd1a19d8fd8769fc59fe64aff2a5f4276bbf820c41019edf70",
+    "llm/local_baseline/speech.py": "fd1df0165e3c443b778a864f355d9eec665721926259296f513b6af82883afbc",
+    "llm/local_baseline/scoring.py": "5bef9f2c416bacfd71d698662630ac0e4b493a79d0f998d30028dd7c7abce01a",
+    "llm/experiments/asr_medium_v3_qwen_v2_20261108/evaluate_candidate.py": "3d633d9739df038a6897117bada4780ff292016ca0b7c208bdaaf685bca763cd"
+  },
+  "packaging_only": true,
+  "not_retrained_or_public_rerun": true
+}
