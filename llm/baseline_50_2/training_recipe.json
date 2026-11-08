@@ -1,0 +1,61 @@
+{
+  "asr": {
+    "base": "vinai/PhoWhisper-medium",
+    "revision": "55a7e3eb6c906de891f8f06a107754427dd3be79",
+    "method": "LoRA",
+    "rank": 32,
+    "alpha": 64,
+    "dropout": 0.05,
+    "targets": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "out_proj",
+      "fc1",
+      "fc2"
+    ],
+    "epochs": 2,
+    "learning_rate": 0.0005,
+    "batch_size": 1,
+    "gradient_accumulation": 32,
+    "warmup_steps": 30,
+    "weight_decay": 0,
+    "save_steps": 10,
+    "select_checkpoint": "best generated VAL WER at epoch boundaries; retain best and final adapters plus complete latest checkpoints",
+    "decode": {
+      "language": "vi",
+      "task": "transcribe",
+      "beams": 1,
+      "max_new_tokens": 256,
+      "batch_size": 4
+    }
+  },
+  "qwen": {
+    "base": "Qwen/Qwen3.5-4B",
+    "revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+    "method": "QLoRA NF4; CUDA feasibility must pass before full training",
+    "rank": 16,
+    "alpha": 32,
+    "dropout": 0.05,
+    "targets": "all text attention/linear-attention/MLP linear modules; exclude vision/embeddings/lm_head",
+    "epochs": 1,
+    "learning_rate": 0.0001,
+    "batch_size": 1,
+    "gradient_accumulation": 8,
+    "loss": "native next-action completion tokens and EOS only; project supervised positions only",
+    "initialize_from": "original pinned base; independent V2, not interrupted Kaggle optimizer/checkpoint"
+  },
+  "split": {
+    "train_fit": 1236,
+    "val": 309,
+    "group_disjoint": true
+  },
+  "qwen_examples": {
+    "train": 3906,
+    "val": 963
+  },
+  "seed": 20261103,
+  "inference_qwen": "merged Q4_K_M",
+  "inference_asr": "merged FP16",
+  "training_reference_scope": "Frozen historical source. Depends on original project layout/kernels; not a standalone training command. Portable run is python -m baseline50."
+}

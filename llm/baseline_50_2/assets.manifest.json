@@ -1,0 +1,340 @@
+{
+  "release": "lifemate-public50.2-mediumV3-qwenV2-20261108",
+  "files": {
+    "models/asr/added_tokens.json": {
+      "bytes": 2082,
+      "sha256": "ce949fe720c14311cb6c446e69cfe340dc669d7b006077a6feed6ae571dd7e88"
+    },
+    "models/asr/config.json": {
+      "bytes": 1304,
+      "sha256": "710db858501fb69f2c31ca8529f591e3f089027db84a5001a6e5edfaf2d6c56d"
+    },
+    "models/asr/generation_config.json": {
+      "bytes": 3966,
+      "sha256": "34233ee8647a03ac94bef2e5a4255e6871e9122b52edfa96e8fd1ac54538b3f4"
+    },
+    "models/asr/merges.txt": {
+      "bytes": 493864,
+      "sha256": "78f27f801feb4283ae969d4cadacb28fc051b655647402b1a252c7079ea11c46"
+    },
+    "models/asr/model.safetensors": {
+      "bytes": 1527827760,
+      "sha256": "ef9fbfeeb376cede75127035db135fe614c5c92478fde1f837dbcab2ace94c4a"
+    },
+    "models/asr/normalizer.json": {
+      "bytes": 52666,
+      "sha256": "bf1c507dc8724ca9cf9903640dacfb69dae2f00edee4f21ceba106a7392f26dd"
+    },
+    "models/asr/preprocessor_config.json": {
+      "bytes": 339,
+      "sha256": "a6a76d28c93edb273669eb9e0b0636a2bddbb1272c3261e47b7ca6dfdbac1b8d"
+    },
+    "models/asr/special_tokens_map.json": {
+      "bytes": 2077,
+      "sha256": "b0aac6950381c4ae2f60b3f0fab04bcfe399a6a320cb3e4c7aee2d52924d733e"
+    },
+    "models/asr/tokenizer.json": {
+      "bytes": 2204003,
+      "sha256": "c218b12acbc2168cad951ae8a8c8d345df09dfa63b787214d4ac27762170fd7b"
+    },
+    "models/asr/tokenizer_config.json": {
+      "bytes": 805,
+      "sha256": "14f84bdf4b9ecdbd4738ddc81c17a1baedfc02bb93c6e049c951e15a1b40b70d"
+    },
+    "models/asr/vocab.json": {
+      "bytes": 835550,
+      "sha256": "8f680bba319e01a653d2e8a5dbc17a9157179e0576e6ce74ce0c06356c6e24f9"
+    },
+    "models/qwen/Qwen3.5-4B-LifeMate-V2-Q4_K_M.gguf": {
+      "bytes": 2708804064,
+      "sha256": "cb09b88189a7a1e001022b08eac0e7609c560cd3dee0bca37f9414a85f74a8b1"
+    },
+    "private_data/retrieval_index.json": {
+      "bytes": 659009,
+      "sha256": "7a0ddca8a099d025aa9d805f0888fc93354276ef6bf4814c651dd5818dfe5629"
+    },
+    "private_data/split.json": {
+      "bytes": 78865,
+      "sha256": "954c7de55700b0fea3ba5a0a0b007b5a3b30347af6d7c56aae375cb3109bbe44"
+    },
+    "private_data/train_references.json": {
+      "bytes": 851409,
+      "sha256": "02380f8d60dc24a5129cbbcf31636174cf947bd7ae160e1d5770699515c6e2be"
+    },
+    "runtime/cublas64_12.dll": {
+      "bytes": 100033536,
+      "sha256": "e40202fe4223c1cd2d2dce7beec59e1ed61c7801bd827309183be9b50e358f4c"
+    },
+    "runtime/cublasLt64_12.dll": {
+      "bytes": 473551360,
+      "sha256": "2a896460bef60ed57ef32b0875812f355a6984e671d638bb632f5e8c1d7a831f"
+    },
+    "runtime/cudart64_12.dll": {
+      "bytes": 553984,
+      "sha256": "d28e42265da7462162a54da6b7a99ea4fa2caf8139d862bb500db875d0b32dfc"
+    },
+    "runtime/ggml-base.dll": {
+      "bytes": 805376,
+      "sha256": "49dc943cb799a85e08f25dc09f3475296b71fec3b0b146ee2be6375a78afe729"
+    },
+    "runtime/ggml-cpu-alderlake.dll": {
+      "bytes": 1419264,
+      "sha256": "82c5f6bb5630ece957308fb3c16a09f2290ef6979911b98c1053debab41747b8"
+    },
+    "runtime/ggml-cpu-cannonlake.dll": {
+      "bytes": 1613824,
+      "sha256": "b2ef2ee834143fbf9784bca29d5ccdf22484ff4f51fdff8bee878fcd7d053e7b"
+    },
+    "runtime/ggml-cpu-cascadelake.dll": {
+      "bytes": 1587200,
+      "sha256": "4ca4bebe7414d05c21703aafb42e8a8aba7d06b89a691bdafd9009c812afe6f2"
+    },
+    "runtime/ggml-cpu-cooperlake.dll": {
+      "bytes": 1596416,
+      "sha256": "458203e887ee50796ace112f7411ef8bcf133a58883688ae3a262a3377d4b520"
+    },
+    "runtime/ggml-cpu-haswell.dll": {
+      "bytes": 1424384,
+      "sha256": "c7e6d164c43d21c0ae727ab5a446b7ce04d6e20924c57e518d02075dad45b9ad"
+    },
+    "runtime/ggml-cpu-icelake.dll": {
+      "bytes": 1593344,
+      "sha256": "63820dbaad0f108922ce96e568df566e8181da8cf57dd517cab985f275a3e0c6"
+    },
+    "runtime/ggml-cpu-ivybridge.dll": {
+      "bytes": 1305600,
+      "sha256": "c58189097afadf513a323df580b68744c89f60cf5e348b3c3a8de7f61c3b3426"
+    },
+    "runtime/ggml-cpu-piledriver.dll": {
+      "bytes": 1298432,
+      "sha256": "421ba848e5cf94243a4d59bc57d5f24cf17dcb35b35663524e8c51274527c0e9"
+    },
+    "runtime/ggml-cpu-sandybridge.dll": {
+      "bytes": 1294848,
+      "sha256": "1d85ae480964b74d41fadc57e9185e5985a3389f9c24dbc1992c7364c370d04c"
+    },
+    "runtime/ggml-cpu-sapphirerapids.dll": {
+      "bytes": 1873408,
+      "sha256": "b0be8bb6a32eaf5516c7f160a266a1a6c4701d5ad76c3b41375dd846afdbbf02"
+    },
+    "runtime/ggml-cpu-skylakex.dll": {
+      "bytes": 1607168,
+      "sha256": "ed2415e3eaaf77a0398b2f092178213205a1a98f2e908031c480c28d468c9572"
+    },
+    "runtime/ggml-cpu-sse42.dll": {
+      "bytes": 920576,
+      "sha256": "901b058a1f9cd4191e8415c577bf3d85350aa3d81fa6d315e0c09d13893a61e6"
+    },
+    "runtime/ggml-cpu-x64.dll": {
+      "bytes": 913920,
+      "sha256": "0cca972a4cfbbc8d5130c83460914897f9439b535a1df349535fe9b055e47c0e"
+    },
+    "runtime/ggml-cpu-zen4.dll": {
+      "bytes": 1603072,
+      "sha256": "5fc2256a8152bd39a4ecda52ee863562db75ccfce268a5943e23eab5e9fc51c0"
+    },
+    "runtime/ggml-cuda.dll": {
+      "bytes": 577741824,
+      "sha256": "ee2ce0b45fbf60930fda5022a9d86e32c036f850c34db564cf7b60a74c0ccc11"
+    },
+    "runtime/ggml-rpc.dll": {
+      "bytes": 231424,
+      "sha256": "b0050dd7012c6609b3f010c0283d98cc026e6b4485f75f38b138d60ff41396f8"
+    },
+    "runtime/ggml.dll": {
+      "bytes": 78848,
+      "sha256": "5ddcd0a2bc97f54a1b2b35f0c5d50b3453942b4e61c5c5446d2521d0920f8da4"
+    },
+    "runtime/libomp.dll": {
+      "bytes": 768000,
+      "sha256": "a12116ba72d1d6820407cf30be23da04ce79d6bb8a71a5ee71759c5a1faa6f1c"
+    },
+    "runtime/LICENSE-LLVM-OpenMP": {
+      "bytes": 19741,
+      "sha256": "fdad1758a9e1f9d5a81e18879b3406772115edc92c24bfa36b70c654f325e8e4"
+    },
+    "runtime/llama-batched-bench-impl.dll": {
+      "bytes": 61952,
+      "sha256": "0cc8d8221a45a7789d76c9dcb06a9c3e0175a158c5947c833bb1573f5bd1645c"
+    },
+    "runtime/llama-bench-impl.dll": {
+      "bytes": 404480,
+      "sha256": "bd696fa09889d6aeabbb1e9b87f5f8ae62c423c67f2553d5d312772fa6408e68"
+    },
+    "runtime/llama-cli-impl.dll": {
+      "bytes": 3364864,
+      "sha256": "e4a4e31fa6b4d84d4e24eb891fe8d5b3bf8ddb680eab3fe1de9408e6983b10c3"
+    },
+    "runtime/llama-common.dll": {
+      "bytes": 8210432,
+      "sha256": "29224b535b4ddc7051d97d37343205b4b00ada8de4d46a47d8acaf7f91f6a643"
+    },
+    "runtime/llama-completion-impl.dll": {
+      "bytes": 140800,
+      "sha256": "720d47ca82ddb09e518dfa4aba43b64db9349efa4ee0cf7e144a96657bc84573"
+    },
+    "runtime/llama-fit-params-impl.dll": {
+      "bytes": 43520,
+      "sha256": "f4ae22061f071eb439782b69b953ca36d1e8cea0fe9d7e179a846c43d0594180"
+    },
+    "runtime/llama-perplexity-impl.dll": {
+      "bytes": 197632,
+      "sha256": "e32c382f2dda1dac1f722a8eea320e16635770514b404b1fdacd60cf480457f2"
+    },
+    "runtime/llama-quantize-impl.dll": {
+      "bytes": 137216,
+      "sha256": "5afa834798f44a68d3ce9aac69485801bed9e41e36662ee88b3880dc6218577f"
+    },
+    "runtime/llama-server-impl.dll": {
+      "bytes": 9585664,
+      "sha256": "563c7c19c11e40a7032d33acf337dd45d336729ee7f07a7207db9050655fc648"
+    },
+    "runtime/llama-server.exe": {
+      "bytes": 9216,
+      "sha256": "1ea89f8239f633bdd05b536d0e8d8166c2e813e7a372dd4805975ba9060369b3"
+    },
+    "runtime/llama.dll": {
+      "bytes": 3588096,
+      "sha256": "2c9b666bbcbc1e51d493d683e536da102e6aebb1bc9eee464388c006613aa325"
+    },
+    "runtime/mtmd.dll": {
+      "bytes": 1915392,
+      "sha256": "e6e72418b39d03e3b516addb5bbf9bc498b3b970e6842ae729350517c0704c76"
+    },
+    "runtime/LICENSE-llama.cpp": {
+      "bytes": 1078,
+      "sha256": "94f29bbed6a22c35b992c5c6ebf0e7c92f13b836b90f36f461c9cf2f0f1d010d"
+    }
+  },
+  "dataset": {
+    "train": {
+      "jsonl_sha256": "24c42c79fbe8db932fe9817d041c0d0ca422ac8177b413cc1be0cda1fd8941a8",
+      "catalog_sha256": "a994984bb580d7e0d60166641858901d428549682ba3614dbf9269037a33cce0",
+      "runtime_py_sha256": {
+        "__init__.py": "8b7349bf1ee40275052893f8cc2ee7041448f120c82f745b89039c0ceed5215f",
+        "__main__.py": "2ec33d3b8df9dc9b33ea963e41a5d53828651fd6225cbf4a25be4e2eea105029",
+        "apps/__init__.py": "853f9bef8f7c867e52e5487146ecfa4ba0343eb581f3f7c422a5e514b6f355c9",
+        "apps/alarm.py": "e6d27bf70ab804541b84ded9a25ce10144ec5fc0356feeff207bfe6b29bd8dc2",
+        "apps/appliances.py": "3899a1d197bd37041d0dad4c1435a57052efea0d85e66081dfbd03ffacee73cc",
+        "apps/banking.py": "e5de19b9301aa0cd70a3983f7db29d9e3dba4302429faa931e75309c346a9850",
+        "apps/base.py": "8ca32532be54f08ad99a6c1bfda528bd1273ed5cce85151da49b0ddf37434a21",
+        "apps/bike_rental.py": "6ca7d756ce917f02bb940e1787feac3fb816c309931f94f4043209bda23d8193",
+        "apps/bill_payment.py": "8ebb535c3d648637d93db056e033651c50a8da524aa6e07fc1a11364b203f79f",
+        "apps/calculator.py": "c2f7c4b4161c3c00ccadf4531e1d782ccb075e491d25e0f2c927dd849c03562e",
+        "apps/calendar.py": "f94c0e4f7a2e8b5fc4df1103a96b1ee4f90e9f7fb11b66158a1c50984cb74816",
+        "apps/chat_ott.py": "c93042f3567f871b58d626d79c27c7ce8b937001292ea253d052f23957c66424",
+        "apps/contacts.py": "6c441ce3111edc9e71d3d7d0b3978ba029f8d7430d27930ca3f1bead8416d2e6",
+        "apps/door_lock.py": "5e87160350f0ce25a5a05b2e256b509e48ca4ef33a16651d3b1a744be0794ba2",
+        "apps/email.py": "60fb25fa81f731cb91395178660fca431ee68ef9cf629ed0680afed6102d5034",
+        "apps/ewallet.py": "4f6e04b311c6f1fdf37ad3f9588b9c8739b376dfa73c4f51b1d388779188cd08",
+        "apps/exchange_rate.py": "93cae56e25d904b0df7695443b4cedc498ee9dad8fdbb9a40f8734cbc494a930",
+        "apps/fitness.py": "7fc0c107248eefcde26fd8fd57137f516659207beb4c66391a95de7077978619",
+        "apps/flights.py": "42d5a21ef291118bac5c18fd32838c185e340cd2e0747c389bc434853d88bf47",
+        "apps/food_delivery.py": "ad6872fdc58a1b950751b9ee597d860010560c9a705abd59744a62d449db05b4",
+        "apps/fuel_price.py": "1e3087b7b3cb8ec648d919a97a76b2961a0c2300caa0abec51bfeb00592b3978",
+        "apps/gold_price.py": "c4c078bbb20449298a6c7b5cf2c62b55b9f1ddec1dfbc56650a5ea80d3e8131b",
+        "apps/home_automation.py": "24536b857058457210d3dc608d0547cd0072df3d78c86175fb8c7fe2ff307869",
+        "apps/home_energy.py": "496da7c5561e1d6dab4f20f054dd5d594c811ad25ddd530362fc6f61c6798c07",
+        "apps/home_security.py": "8b2e644b2ac4e52a0c97f83cb3779abc9a34122b837d9dd17e87a2f78355d298",
+        "apps/household_chores.py": "6e4a402a93b46096acaaa5376fce8cb1a91ef6c267e95f70f9b9f48419b82cca",
+        "apps/learning.py": "6fda55bcee72362e8403fc59603e7ff03c84a71127313ccb573adb406231ad01",
+        "apps/library.py": "fa405400ea9702262d07d848f89b3aaabd897261c12a153e5f249cc771d22491",
+        "apps/lottery.py": "ff817a8759d262e4cce287e06a7a34b5272bbaf284bdc4a1bd915f7c6db82022",
+        "apps/loyalty.py": "27d8803303baafc6c6073e72c8dfa24d29afb090868f5770b8d79f22e94c0193",
+        "apps/maps.py": "c0662bf66df8bbc5eadb3260097418f08afdc5553361b4f901befd79e74d5d09",
+        "apps/medication.py": "7b2719044e5947e4a97aeb2d3ff31a443598595b77a0e79b7f03aed6a9fec39c",
+        "apps/music.py": "6a5cece7e96d5694683eab94c6bf6914c4de89bc735d1e5843858a89e2e20fc9",
+        "apps/news.py": "271dcc2eca8983e2f17eda429abd6b4abc126f3cbc8db8d7601dd71ad9f4836f",
+        "apps/notes.py": "54c2e3adb240789dff8b63f5a6260a968cbada4504cc30e9a456c514ab32438e",
+        "apps/package_tracking.py": "0be203dc3303336b727144fd0cfb33d20693e7ce5d5dfd9d7e9e54f456848e7b",
+        "apps/phone.py": "c282dc6d2e6ae1b15faf4e2dc934af73b6a13e0fdb20fc79b4cd7defa7b96921",
+        "apps/podcast_radio.py": "c2af88d6c0f21ba6e1478fb10695b9564159729297c0a7a6f0a03997ff0ab8e9",
+        "apps/reminders.py": "b81b5c83c86b0d9d7af81b62d0028496426f9f985587945742ffd400c494006f",
+        "apps/ride_hailing.py": "4912952ebb155fe1475800991c54f898c6e6a913154434ccd6bf71d0c9c75f28",
+        "apps/robot_vacuum.py": "8157d95694fcf0d8103a4326711f1a1d3332df3b916fe6458e5b6455ba133f61",
+        "apps/shopping_list.py": "2b5d9f7ba0df28d7a8c893c2969491dcac85391c090857988fb22a7d3da42c5c",
+        "apps/smart_home.py": "fd838ef309a8a9bc1bdf3ea1d6ef1e0e342baa2e3d10ce7311e1803d1cfd9a06",
+        "apps/sms.py": "8423ecb1236792ba1a2939aaa26ed3e940962d025c11df5f47d7afb79a7c7595",
+        "apps/subscriptions.py": "52621f7db0a0520315a391dc0f7b3441f0014ad84fe1d7704fda3fe66694850f",
+        "apps/sys.py": "589f05e6593acf6bbbee5fa4857afbeb9781083c28fa9bd28f1d395e7576a9d9",
+        "apps/tasks.py": "0bd3ddee2958e5b98f61ebabe30b73f37168850a4f10568b774702ad5390431f",
+        "apps/tv.py": "c99388e1064ea093220b79c736a5036c5c7338eb68e5b68b533ba46033af7930",
+        "apps/video_meeting.py": "2bf855119a1b1b8dfdbd7fab0891a28b97a8f3fd51631d43f794de61f1917687",
+        "apps/weather.py": "b86b5d16d132c068066d099bbf26343c437f78f13d4ae930491b641f7c47d2be",
+        "executor.py": "5fa21059528350069f3eb38041fc8e327859d8a538711d34574c4810f689986c",
+        "utils.py": "2262c9fe7cb17b1d1cd18dacd2a84a74cc443d76c47c1ba29c004729e1115d1e",
+        "validate.py": "776469cbf6f3c53f05612c7a9a97a7e8f48bd0da7bc6b1721cbebb26a70f271d"
+      }
+    },
+    "public_test": {
+      "jsonl_sha256": "6274f4ff32ab03c33350029a0672a67884209b7d97f66e80181e446dd955f604",
+      "catalog_sha256": "c8f46c278a7495d36905ac28fc5b85b67aad22bc2ac0b29ba9ac6455ad9daf5d",
+      "runtime_py_sha256": {
+        "__init__.py": "8b7349bf1ee40275052893f8cc2ee7041448f120c82f745b89039c0ceed5215f",
+        "__main__.py": "2ec33d3b8df9dc9b33ea963e41a5d53828651fd6225cbf4a25be4e2eea105029",
+        "apps/__init__.py": "853f9bef8f7c867e52e5487146ecfa4ba0343eb581f3f7c422a5e514b6f355c9",
+        "apps/_geo.py": "bc7ac5b3c65087c314a236e5edd3941ea01794e239103b844515eb5bc6aa7d5a",
+        "apps/_shop_match.py": "7222647231281796c7db6ceb83dce4200d05d7f2c9f405d283757a3d06424af7",
+        "apps/alarm.py": "e6d27bf70ab804541b84ded9a25ce10144ec5fc0356feeff207bfe6b29bd8dc2",
+        "apps/banking.py": "e5de19b9301aa0cd70a3983f7db29d9e3dba4302429faa931e75309c346a9850",
+        "apps/base.py": "8ca32532be54f08ad99a6c1bfda528bd1273ed5cce85151da49b0ddf37434a21",
+        "apps/bill_payment.py": "8ebb535c3d648637d93db056e033651c50a8da524aa6e07fc1a11364b203f79f",
+        "apps/calendar.py": "f94c0e4f7a2e8b5fc4df1103a96b1ee4f90e9f7fb11b66158a1c50984cb74816",
+        "apps/chat_ott.py": "c93042f3567f871b58d626d79c27c7ce8b937001292ea253d052f23957c66424",
+        "apps/contacts.py": "6c441ce3111edc9e71d3d7d0b3978ba029f8d7430d27930ca3f1bead8416d2e6",
+        "apps/ecommerce.py": "65d371b2f8baf9dbba6d46f8a3c5cae34a04494e60fa5cbb25d9c9a145d8151a",
+        "apps/email.py": "60fb25fa81f731cb91395178660fca431ee68ef9cf629ed0680afed6102d5034",
+        "apps/event_tickets.py": "944b0bdf21e39b2c7fecd420e013509a0dd7fdf1c5325f20dfbc7d0e562ca3d6",
+        "apps/ewallet.py": "4f6e04b311c6f1fdf37ad3f9588b9c8739b376dfa73c4f51b1d388779188cd08",
+        "apps/flights.py": "42d5a21ef291118bac5c18fd32838c185e340cd2e0747c389bc434853d88bf47",
+        "apps/food_delivery.py": "ad6872fdc58a1b950751b9ee597d860010560c9a705abd59744a62d449db05b4",
+        "apps/fuel_price.py": "1e3087b7b3cb8ec648d919a97a76b2961a0c2300caa0abec51bfeb00592b3978",
+        "apps/gold_price.py": "c4c078bbb20449298a6c7b5cf2c62b55b9f1ddec1dfbc56650a5ea80d3e8131b",
+        "apps/grocery.py": "7444776aab522f789a75c7fd222d2923c02a89cce080babb4c069f944c7f6401",
+        "apps/habit_tracker.py": "0b2e163e1cee9f40fec18f35a952606b5388499404960809588e379593be492e",
+        "apps/maps.py": "c0662bf66df8bbc5eadb3260097418f08afdc5553361b4f901befd79e74d5d09",
+        "apps/music.py": "6a5cece7e96d5694683eab94c6bf6914c4de89bc735d1e5843858a89e2e20fc9",
+        "apps/notes.py": "54c2e3adb240789dff8b63f5a6260a968cbada4504cc30e9a456c514ab32438e",
+        "apps/pantry.py": "ce1a146696734c23616a05dbbf566b9d018292e9abd32eb0e0896afddd394714",
+        "apps/parking.py": "02bc0f86e32afda70559c4e533c5d8d8c637550aaadb44338ecc5465301eaced",
+        "apps/phone.py": "c282dc6d2e6ae1b15faf4e2dc934af73b6a13e0fdb20fc79b4cd7defa7b96921",
+        "apps/public_transit.py": "ac9a49d6e846dc0f6984b080e63ba417e2186d875b526f61adb114e5d58e1671",
+        "apps/recipes.py": "957bb36d46aee4cb5bcc8f4a668b3cf035acb1c86b23da02cd49b5d2e49b83cb",
+        "apps/reminders.py": "b81b5c83c86b0d9d7af81b62d0028496426f9f985587945742ffd400c494006f",
+        "apps/ride_hailing.py": "4912952ebb155fe1475800991c54f898c6e6a913154434ccd6bf71d0c9c75f28",
+        "apps/shopping_list.py": "2b5d9f7ba0df28d7a8c893c2969491dcac85391c090857988fb22a7d3da42c5c",
+        "apps/smart_home.py": "fd838ef309a8a9bc1bdf3ea1d6ef1e0e342baa2e3d10ce7311e1803d1cfd9a06",
+        "apps/sms.py": "8423ecb1236792ba1a2939aaa26ed3e940962d025c11df5f47d7afb79a7c7595",
+        "apps/stocks.py": "f53c13103f22d037de4bef3dcb7c6aac9c37501687591f0c18192d474c9a3c57",
+        "apps/sys.py": "589f05e6593acf6bbbee5fa4857afbeb9781083c28fa9bd28f1d395e7576a9d9",
+        "apps/tasks.py": "0bd3ddee2958e5b98f61ebabe30b73f37168850a4f10568b774702ad5390431f",
+        "apps/train_bus_tickets.py": "c0df12933328312a563a54229c1f40a42d742079b1f739560ff51a35ed79b055",
+        "apps/translator.py": "578411bc5dbb88490736ba42d1ab9d315bde6b6115d798bda7795247eeec779f",
+        "apps/tv.py": "c99388e1064ea093220b79c736a5036c5c7338eb68e5b68b533ba46033af7930",
+        "apps/weather.py": "b86b5d16d132c068066d099bbf26343c437f78f13d4ae930491b641f7c47d2be",
+        "executor.py": "5fa21059528350069f3eb38041fc8e327859d8a538711d34574c4810f689986c",
+        "utils.py": "61760fad130f531f4556d3990c5b81ffc38bb5e4476ecea1dcf24cd411c3ce35",
+        "validate.py": "776469cbf6f3c53f05612c7a9a97a7e8f48bd0da7bc6b1721cbebb26a70f271d"
+      }
+    }
+  },
+  "qwen_file": "models/qwen/Qwen3.5-4B-LifeMate-V2-Q4_K_M.gguf",
+  "asr_vocab_sha256": "ca9d315f05eff6a7f003c7b34497fb626809676e03c9cca3d66c6a3ef0942f40",
+  "merged_parameters": 5303123456,
+  "platform_verified": "Windows11/NVIDIA, Python3.13.13, Torch2.8.0+cu128, Transformers4.57.1",
+  "runtime": {
+    "tag": "b11800",
+    "source_assets": [
+      {
+        "name": "llama-b11800-bin-win-cuda-12.4-x64.zip",
+        "sha256": "80e7cb24b95332415ad3765ddc9b6555afbce96e4f47514cb29d86158b8f53fc",
+        "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11800/llama-b11800-bin-win-cuda-12.4-x64.zip"
+      },
+      {
+        "name": "cudart-llama-bin-win-cuda-12.4-x64.zip",
+        "sha256": "8c79a9b226de4b3cacfd1f83d24f962d0773be79f1e7b75c6af4ded7e32ae1d6",
+        "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11800/cudart-llama-bin-win-cuda-12.4-x64.zip"
+      }
+    ]
+  }
+}

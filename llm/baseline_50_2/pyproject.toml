@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lifemate-baseline-50-2"
+version = "0.1.0"
+description = "Offline PhoWhisper-medium LoRA + Qwen3.5-4B baseline"
+requires-python = ">=3.11"
+
+[tool.setuptools]
+packages = ["baseline50"]
+
+[tool.setuptools.package-data]
+baseline50 = ["*.json", "*.txt"]

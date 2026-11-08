@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "views_prompts_and_installed_schemas_checked": 943,
+  "exact_actor_function_ast": true,
+  "exact_backend_request_and_decode_ast": true,
+  "exact_asr_decode_ast": true,
+  "policy_and_scorer_byte_identical": true,
+  "system_prompt_identical": true,
+  "processor_vocab_and_features_identical": true,
+  "train_waveforms_checked": 2,
+  "no_gpu_inference_or_training_or_public_ToolEnv_replay": true
+}
