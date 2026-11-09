@@ -5,6 +5,9 @@ import shutil
 from .common import OFFICIAL, SYN_ROOT
 
 
+ID_TAG = "v21"   # v2.1: ID mới, không trùng ID của bản v2 / release filtered-311 (synth_t2_00014 ...)
+
+
 class SyntheticBuilder:
     """Quản lý split 'synthetic' (cùng layout với split official để ToolEnv chạy được)."""
 
@@ -24,7 +27,7 @@ class SyntheticBuilder:
 
     def new_id(self):
         self.n += 1
-        return f"synth_{self.tech}_{self.n:05d}"
+        return f"synth_{ID_TAG}_{self.tech}_{self.n:05d}"
 
     def write_state(self, syn_id, sample, states):
         """Ghi synthetic_environment/<syn_id>/state.json = _meta dựng từ context + states (đã/không đột biến)."""

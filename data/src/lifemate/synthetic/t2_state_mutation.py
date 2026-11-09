@@ -53,6 +53,9 @@ def relation_pool(samples):
 def build_t2(b, samples, catalog, target=150):
     tmap = tool_map(catalog)
     pairs = allowed_pairs(samples, tmap)
+    # cùng loại thực thể với cặp đã có trong train (chat_ott.chats) -> cho phép thêm
+    for extra in (("chat_ott.send_location", "chat_id"), ("chat_ott.call", "chat_id")):
+        pairs.setdefault(extra, 1)
     total = sum(pairs.values())
     quota = {k: max(1, round(target * v / total)) for k, v in pairs.items()}
     rels = relation_pool(samples)
@@ -86,6 +89,8 @@ def build_t2(b, samples, catalog, target=150):
         info = duplicate_for_ambiguity(states, rid, s["audio_text"], rels, b.rng)
         if not info:
             why["cannot_duplicate_naturally"] += 1; continue
+        if "skip" in info:
+            why[info["skip"]] += 1; continue
         env = session_from(s, states, "probe")
         before = env.get_state()
         prefix = calls[:widx]
@@ -106,7 +111,7 @@ def build_t2(b, samples, catalog, target=150):
                "context": s["context"], "history": s.get("history", []),
                "label": {"tool_calls": prefix + [ask], "tool_results": obs + [ra], "final_state": fs},
                "provenance": {"target_tool": w["name"], "param": p, "duplicated_from": rid,
-                              "duplicate_name": info["name"], "changed": info["changed"],
+                              "duplicate_name": info["name"], "changed": info["changed"], "entity_list": info.get("list"),
                               "dropped_calls_after": len(calls) - widx - 1}})
         used[(w["name"], p)] += 1
         made += 1
