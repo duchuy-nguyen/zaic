@@ -13,6 +13,9 @@ Bản v2 (mọi lỗi đều in id; exit code 1 nếu có lỗi):
   C7 replay      replay TOÀN BỘ record trên state synthetic: tool_results phải BẰNG nhãn,
                  final_state phải BẰNG các app bị đổi (định nghĩa Executor.replay của zaic_tools).
   C8 provenance  state synthetic khớp nguồn: t3/t4 cùng hash với mẫu train gốc; t2 = gốc + đúng 1 thực thể mới.
+  C10 alignment  t1/t2: audio_text == câu gốc (WAV khớp text); t3/t4: khác câu gốc và transcript_mode != gold
+                 (chỉ dùng train text). Record mang cờ text_only để bên huấn luyện lọc.
+  C11 t2_natural bản sao t2 phải khác bản gốc ngoài id (không còn bản sao chỉ-khác-ID); tên liên hệ là tên riêng.
   C9 semantic    t1: mọi call gold gốc bị từ chối với installed_apps mới.
                  t2: kết quả read cuối có >= 2 thực thể trùng tên, thực thể mới khác id gốc.
                  t3: giá trị đã lược không còn trong câu; câu khác câu gốc.
@@ -74,6 +77,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--file", default=None)
     ap.add_argument("--no-replay", action="store_true", help="bỏ C7/C8 (khi không có synthetic_environment)")
+    ap.add_argument("--json-out", default=None, help="ghi kết quả kiểm định ra file JSON (bằng chứng cho OPS)")
     a = ap.parse_args()
 
     if a.file:
@@ -134,6 +138,24 @@ def main():
         if h in seen:
             errs["C6_dup"].append(rid)
         seen.add(h)
+        # C10
+        if src:
+            same = r["audio_text"] == src["audio_text"]
+            if tech in ("t1_zero_action", "t2_state_mutation") and (not same or r["audio"] != src["audio"]):
+                errs["C10_audio_text_misaligned"].append(rid)
+            if tech in ("t3_param_removal", "t4_asr_noise") and (same or r.get("transcript_mode") == "gold"):
+                errs["C10_text_only_flag_wrong"].append(rid)
+        # C11
+        if tech == "t2_state_mutation":
+            ch = r["provenance"].get("changed", {})
+            if set(ch) <= {"id"}:
+                errs["C11_t2_id_only_clone"].append(rid)
+            lst = r["provenance"].get("entity_list") or \
+                ("contacts" if r["provenance"].get("param") == "contact_id" else None)
+            if lst == "contacts":
+                from .mutators import is_person_name
+                if not is_person_name(r["provenance"].get("duplicate_name", "")):
+                    errs["C11_t2_not_person_name"].append(rid)
         # C9
         if tech == "t1_zero_action" and src:
             if any(sim.validate(c["name"], c["arguments"])["ok"] for c in src["label"]["tool_calls"]):
@@ -200,6 +222,21 @@ def main():
     if not n_err:
         print("  (không có lỗi)")
     print("VALIDATE OK" if not n_err else f"VALIDATE FAIL ({n_err} lỗi)")
+    if a.json_out:
+        import hashlib
+        src_file = a.file or "synthetic/phase1_*.jsonl"
+        sha = hashlib.sha256(open(a.file, "rb").read()).hexdigest() if a.file else None
+        rep = {"file": src_file, "sha256": sha, "records": len(recs), "by_technique": dict(by),
+               "replay": "skipped" if a.no_replay else "all_records_with_calls",
+               "checks": ["C1_structure", "C2_schema", "C3_no_syn", "C4_phone", "C5_leak_source_and_VAL_text",
+                          "C6_dup", "C7_replay_results_and_final_state", "C8_state_provenance_vs_train_source",
+                          "C9_semantic_rules", "C10_audio_text_alignment", "C11_t2_natural_clone"],
+               "errors": {k: v for k, v in errs.items()}, "error_count": n_err,
+               "text_only_records": sum(r["technique"] in ("t3_param_removal", "t4_asr_noise") for r in recs),
+               "not_checked": ["full_independent_semantic_adjudication (xem audit_phase1.csv)",
+                               "training_quality_on_VAL"]}
+        open(a.json_out, "w", encoding="utf-8", newline="\n").write(json.dumps(rep, ensure_ascii=False, indent=1))
+        print("->", a.json_out)
     sys.exit(0 if not n_err else 1)
 
 

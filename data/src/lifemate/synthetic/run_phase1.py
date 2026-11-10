@@ -4,7 +4,7 @@ import json
 from .builder import SyntheticBuilder
 from .common import OFFICIAL, RUNS, load_catalog, load_fit_ids, load_jsonl
 
-DEFAULT_TARGET = {"t1": 500, "t2": 150, "t3": 375, "t4c": 250}
+DEFAULT_TARGET = {"t1": 500, "t2": 150, "t3": 375, "t4c": 400}
 
 
 def load_conf():
