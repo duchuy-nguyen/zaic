@@ -1,0 +1,109 @@
+{
+  "source_experiment": "llm/experiments/qwen35_pholarge_swap_20261111",
+  "source_release_freeze_sha256": "2b41fb16ae80c8ab0e4b4bf4164965c042cdc351a136d190cc23b7fbc0719130",
+  "source_large_assets_manifest_sha256": "01fe6d5e2431c565f4ab20ae89fc05f3342d5273d07c6fb409dfdfefc286c8b2",
+  "inference_core_byte_identical_sha256": {
+    "baseline50/actor.py": "b3df06d870c1e5f25ec3bda0461f77b1ed2faa9e3405dfea4bbebeade6011e22",
+    "baseline50/asr.py": "5651b2e2d84be9a684b1c3c0754db4195dc69afbd746c0cd2ab20e4fd5ada336",
+    "baseline50/backend.py": "7f41a6087c76203592522c421558d2f4900aa53108b6eb964a21d24703d4d47d",
+    "baseline50/policy.py": "8a1e4d89ee57d7550117da4e0d44791050b29bc39dd6e8dde5c104844e59a66d",
+    "baseline50/prompt.py": "0af082a87d1ef0ca22ce996e94775a8963ce8944ef3d4c6eacb92fd4b77a0d1b",
+    "baseline50/scoring.py": "5bef9f2c416bacfd71d698662630ac0e4b493a79d0f998d30028dd7c7abce01a",
+    "baseline50/temporal.py": "8536368d1857400755e7b02d3c8dd78275a10640467c5370a3a8483a799db359"
+  },
+  "packaging_adaptations": {
+    "baseline50/run.py": "Import own release verifier and use own CODE_MANIFEST; correct display-only candidate label; descriptive submission filename. Inference/tool/timing flow unchanged.",
+    "baseline50/io.py": "Require exact Large50.9 asset manifest before original asset verification.",
+    "baseline50/release.py": "Verify this public code release instead of original experiment/parent-machine paths.",
+    "RUNTIME.json": "Same operational values; omit old probe-path metadata. No placement or batch-size change."
+  },
+  "source_wrapper_sha256": {
+    "io.py": "a8e3ef997232fbe6bb897d011052185c14310a432a7dcfe63adce79b0b181b14",
+    "run.py": "c0c5189ff3758f7a8bfa330d70e535be40b7bcbff8c463299fc81b136154be3e"
+  },
+  "copied_source_files": {
+    "baseline50/actor.py": {
+      "source": "llm/experiments/qwen35_pholarge_swap_20261111/baseline50/actor.py",
+      "source_sha256": "b3df06d870c1e5f25ec3bda0461f77b1ed2faa9e3405dfea4bbebeade6011e22",
+      "packaged_sha256": "b3df06d870c1e5f25ec3bda0461f77b1ed2faa9e3405dfea4bbebeade6011e22"
+    },
+    "baseline50/asr.py": {
+      "source": "llm/experiments/qwen35_pholarge_swap_20261111/baseline50/asr.py",
+      "source_sha256": "5651b2e2d84be9a684b1c3c0754db4195dc69afbd746c0cd2ab20e4fd5ada336",
+      "packaged_sha256": "5651b2e2d84be9a684b1c3c0754db4195dc69afbd746c0cd2ab20e4fd5ada336"
+    },
+    "baseline50/backend.py": {
+      "source": "llm/experiments/qwen35_pholarge_swap_20261111/baseline50/backend.py",
+      "source_sha256": "7f41a6087c76203592522c421558d2f4900aa53108b6eb964a21d24703d4d47d",
+      "packaged_sha256": "7f41a6087c76203592522c421558d2f4900aa53108b6eb964a21d24703d4d47d"
+    },
+    "baseline50/policy.py": {
+      "source": "llm/experiments/qwen35_pholarge_swap_20261111/baseline50/policy.py",
+      "source_sha256": "8a1e4d89ee57d7550117da4e0d44791050b29bc39dd6e8dde5c104844e59a66d",
+      "packaged_sha256": "8a1e4d89ee57d7550117da4e0d44791050b29bc39dd6e8dde5c104844e59a66d"
+    },
+    "baseline50/prompt.py": {
+      "source": "llm/experiments/qwen35_pholarge_swap_20261111/baseline50/prompt.py",
+      "source_sha256": "0af082a87d1ef0ca22ce996e94775a8963ce8944ef3d4c6eacb92fd4b77a0d1b",
+      "packaged_sha256": "0af082a87d1ef0ca22ce996e94775a8963ce8944ef3d4c6eacb92fd4b77a0d1b"
+    },
+    "baseline50/scoring.py": {
+      "source": "llm/experiments/qwen35_pholarge_swap_20261111/baseline50/scoring.py",
+      "source_sha256": "5bef9f2c416bacfd71d698662630ac0e4b493a79d0f998d30028dd7c7abce01a",
+      "packaged_sha256": "5bef9f2c416bacfd71d698662630ac0e4b493a79d0f998d30028dd7c7abce01a"
+    },
+    "baseline50/temporal.py": {
+      "source": "llm/experiments/qwen35_pholarge_swap_20261111/baseline50/temporal.py",
+      "source_sha256": "8536368d1857400755e7b02d3c8dd78275a10640467c5370a3a8483a799db359",
+      "packaged_sha256": "8536368d1857400755e7b02d3c8dd78275a10640467c5370a3a8483a799db359"
+    },
+    "assets.manifest.json": {
+      "source": "llm/experiments/qwen35_pholarge_swap_20261111/assets_large/assets.manifest.json",
+      "source_sha256": "01fe6d5e2431c565f4ab20ae89fc05f3342d5273d07c6fb409dfdfefc286c8b2",
+      "packaged_sha256": "01fe6d5e2431c565f4ab20ae89fc05f3342d5273d07c6fb409dfdfefc286c8b2"
+    },
+    "baseline50/__main__.py": {
+      "source": "llm/experiments/qwen35_pholarge_swap_20261111/baseline50/__main__.py",
+      "source_sha256": "7c86b1281643b718915bfa2a6489fc97ca04932e696d169d233840f5e09a7025",
+      "packaged_sha256": "7c86b1281643b718915bfa2a6489fc97ca04932e696d169d233840f5e09a7025"
+    },
+    "SOLUTION_DESCRIPTION_TEMPLATE.txt": {
+      "source": "llm/experiments/qwen35_pholarge_swap_20261111/SOLUTION_DESCRIPTION_TEMPLATE.txt",
+      "source_sha256": "3b495ee16e632244ecb72e19c2acd69b93b09051d8e5def78ad460d984708619",
+      "packaged_sha256": "3b495ee16e632244ecb72e19c2acd69b93b09051d8e5def78ad460d984708619"
+    },
+    "tests/test_baseline.py": {
+      "source": "llm/experiments/qwen35_pholarge_swap_20261111/tests/test_baseline.py",
+      "source_sha256": "d9401a8d19821a7ebb2f718bd30253c929433aaab959adc692c140cb5bb5008d",
+      "packaged_sha256": "d9401a8d19821a7ebb2f718bd30253c929433aaab959adc692c140cb5bb5008d"
+    },
+    "tests/test_temporal.py": {
+      "source": "llm/experiments/qwen35_pholarge_swap_20261111/tests/test_temporal.py",
+      "source_sha256": "cb4a06d212b99e8894064e07856d0a4513ff414b59680bb1f8bc86e21b434232",
+      "packaged_sha256": "cb4a06d212b99e8894064e07856d0a4513ff414b59680bb1f8bc86e21b434232"
+    },
+    "tests/test_server_startup.py": {
+      "source": "llm/experiments/qwen35_pholarge_swap_20261111/tests/test_server_startup.py",
+      "source_sha256": "88a13fb81347f4caadcc849c831517e0c984c78e61c0275ec098971019768243",
+      "packaged_sha256": "88a13fb81347f4caadcc849c831517e0c984c78e61c0275ec098971019768243"
+    },
+    "tools/unpack_assets.py": {
+      "source": "llm/baseline_50_2/tools/unpack_assets.py",
+      "source_sha256": "af9c0c69bc22bb2a45b1645d1e3e96dfd72a9744ed42ac4a9b7577eb4e75e1b2",
+      "packaged_sha256": "af9c0c69bc22bb2a45b1645d1e3e96dfd72a9744ed42ac4a9b7577eb4e75e1b2"
+    },
+    "requirements-inference.lock.txt": {
+      "source": "llm/baseline_50_2/requirements-inference.lock.txt",
+      "source_sha256": "a6ccdf74784eefd1ae9e4c5dbf61b661f3a5140cfd4766ceabdafe7af0853862",
+      "packaged_sha256": "a6ccdf74784eefd1ae9e4c5dbf61b661f3a5140cfd4766ceabdafe7af0853862"
+    }
+  },
+  "package_contains_weights_or_data": false,
+  "training_reference": "Component-specialized historical source; see training_reference/DERIVATION.json; not a validated portable training CLI",
+  "review_cleanup": {
+    "old_mixed_training_sources_not_in_this_copy": true,
+    "original_folder_preserved": "llm/baseline_50_9",
+    "new_public_folder": "llm/baseline_50_9_verified",
+    "inference_core_unchanged": true
+  }
+}

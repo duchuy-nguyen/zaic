@@ -1,0 +1,41 @@
+{
+  "kind": "Historical branch-specialized source reference, not retraining or a new validated trainer",
+  "qwen_original_source": "llm/experiments/lifemate_v2_20261106/train_v2.py",
+  "qwen_original_sha256": "fd5c1161c82ae92c31c862e8d9a12697e414780441a2d91306921608b2aa2cda",
+  "qwen_functions": [
+    "read",
+    "atomic",
+    "verify",
+    "model_snapshot",
+    "profile",
+    "statistics_median",
+    "gpu_setup",
+    "training"
+  ],
+  "qwen_fixed_kind": "llm",
+  "asr_original_source": "llm/experiments/qwen3_pholarge_recipe50_5_20261108/train_worker.py",
+  "asr_original_sha256": "4936e842d806413db93ae22d08614b06c88fba02b1145abb4197322cee57e65d",
+  "asr_functions": [
+    "snapshot",
+    "verify_frozen",
+    "gpu_setup",
+    "asr_dataset",
+    "asr_collator",
+    "evaluate_asr",
+    "training"
+  ],
+  "asr_fixed_kind": "asr",
+  "changes": [
+    "Select original component branch and constant conditions only",
+    "Remove opposite-component imports/helpers and CLI",
+    "Relative imports for included helpers",
+    "Explicit private-workspace binding and base-identity guard"
+  ],
+  "original_inference_modules_unchanged": true,
+  "no_new_weights_or_data": true,
+  "exact_helper_function_ast_sha256": {
+    "completion_loss.py:collate_rows": "276087a7226fa1a218bc3cf5bfdc313b3935286ef1d0b48b1826dec866fe3fbb",
+    "completion_loss.py:completion_causal_loss": "7bedf54b9f404b7866ba78c819d6c521a3c71e5e748f2a229b86cb526f6023ea",
+    "tokenization.py:encode": "7634e8561621f605af82da814dcc74fc282be84110b5f1fc16cd7e0f1bc23ca9"
+  }
+}

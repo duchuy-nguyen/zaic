@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "verified_utc": "2026-11-15T10:06:19.337516+00:00",
+  "tests_passed": 28,
+  "original_package_preserved_and_hash_verified": true,
+  "inference_core_files_byte_identical": 7,
+  "expected_large_asset_manifest_verified": true,
+  "training_reference_opposite_model_branches_removed": true,
+  "training_reference_helpers_match_original_AST": true,
+  "portable_training_or_numerical_parity_not_claimed": true,
+  "no_GPU_training_or_inference_rerun": true,
+  "raw_data_weights_checkpoints_records_submissions_not_copied": true,
+  "payload_audit_passed": true,
+  "secret_scan_scope": "Supported patterns, binary/file inventory, private machine paths, sample IDs and links/junctions; not a universal secret-detector guarantee.",
+  "private_ignore_guards_verified": 6,
+  "no_stage_commit_push_upload": true,
+  "code_manifest_sha256": "5b533a36fc303dcdf9c49a3f690058830e525dbf2632a34bec146a4bd8e81407",
+  "docker_handoff_added_utc": "2026-11-15T10:17:23.156926+00:00",
+  "docker_handoff_file": "DOCKER_HANDOFF.md",
+  "documentation_only_change": true,
+  "docker_build_or_run_performed": false
+}
