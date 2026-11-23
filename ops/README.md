@@ -1,5 +1,21 @@
 # LifeMate — Ops nền tảng (demo mock)
 
+Đã có [Docker candidate theo guide BTC mới](packaging/README.md): predict.sh,
+notebook/time và kiểm I/O offline Linux AMD64; chưa chứng nhận inference GPU.
+
+Đã có [đánh giá VAL offline và batch VAL/public có checkpoint](docs/ops/EVAL_BATCH.md).
+Preflight dùng dữ liệu đã pin, không cần GPU; live model vẫn cần runtime phù hợp.
+
+Đã có [chuẩn bị input audio smoke baseline50](docs/ops/BASELINE50_HANDOFF.md),
+kiểm pinned dataset/SDK/split và loại gold khỏi input trước khi chạy model.
+
+Đã có [audit pilot offline](docs/ops/PILOT_AUDIT.md): kiểm artifact, split,
+rollout/metric và tổng hợp timeout/repair trước khi thử tích hợp model mới.
+
+Đã có [bridge baseline50 và ASR batch](docs/ops/BASELINE50_BRIDGE.md), giữ
+prompt/parser/repair của baseline mới, kèm parity tests và factory TRAIN-fit smoke.
+Đã kiểm bằng fixture; live model/GPU và official audio còn cần tài nguyên bàn giao.
+
 Đã có [khung hệ thống inference](docs/ops/SYSTEM_SCAFFOLD.md) gồm prepared
 text/audio boundary, optional lexical tool/example retrieval, grounding guard,
 agent harness và export từ cùng session. Chạy fixture không cần GPU bằng
@@ -133,7 +149,7 @@ budget; elapsed result gồm trace kết thúc nhưng không gồm ghi dòng res
 | `tests/ops/test_runtime.py` | Unit/integration tests offline |
 | `docs/ops/CONTRACTS.md` | Các điểm cần LLM chốt và đường tích hợp |
 | `docs/ops/CHECKLIST.md` | Phần đã kiểm tra và phần còn thiếu |
-| `packaging/README.md` | Checklist packaging, chưa có Docker submission |
+| `packaging/` | Component Docker riêng: Dockerfiles, entrypoint, notebook, staging và hướng dẫn; candidate chưa kiểm GPU |
 
 Kế hoạch gốc không bị sửa. Workspace scaffold này không có bản kế hoạch local;
 đã đọc bản `LifeMate/PROJECT_PLAN_2026-11-03.md` từ repo chung trước triển khai.

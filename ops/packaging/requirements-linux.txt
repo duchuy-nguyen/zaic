@@ -1,0 +1,8 @@
+# Candidate Linux dependency set, not a verified GPU lockfile.
+transformers==4.57.1
+numpy==2.2.6
+safetensors==0.6.2
+tokenizers==0.22.2
+huggingface_hub==0.36.2
+Jinja2==3.1.6
+jupyterlab==4.4.10

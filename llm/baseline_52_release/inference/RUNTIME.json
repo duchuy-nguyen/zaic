@@ -1,0 +1,12 @@
+{
+  "placement": "serial",
+  "ASR_batch_size": 2,
+  "KV": "f16 default baseline",
+  "llama_decode_and_batch_defaults_unchanged": true,
+  "context": 16384,
+  "output": 512,
+  "calls": 8,
+  "repairs": 2,
+  "sample_seconds": 30,
+  "note": "Capacity feasibility is not a quality score or a guarantee every sample fits30s."
+}

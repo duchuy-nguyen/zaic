@@ -1,0 +1,32 @@
+{
+ "file": "synthetic\\synthetic_phase1.jsonl",
+ "sha256": "968a2f3153f0e39ece215d816b12c3178cf67c1dac1e9e54b045a1513939d062",
+ "records": 552,
+ "by_technique": {
+  "t1_zero_action": 78,
+  "t2_state_mutation": 23,
+  "t3_param_removal": 84,
+  "t4_asr_noise": 367
+ },
+ "replay": "all_records_with_calls",
+ "checks": [
+  "C1_structure",
+  "C2_schema",
+  "C3_no_syn",
+  "C4_phone",
+  "C5_leak_source_and_VAL_text",
+  "C6_dup",
+  "C7_replay_results_and_final_state",
+  "C8_state_provenance_vs_train_source",
+  "C9_semantic_rules",
+  "C10_audio_text_alignment",
+  "C11_t2_natural_clone"
+ ],
+ "errors": {},
+ "error_count": 0,
+ "text_only_records": 451,
+ "not_checked": [
+  "full_independent_semantic_adjudication (xem audit_phase1.csv)",
+  "training_quality_on_VAL"
+ ]
+}

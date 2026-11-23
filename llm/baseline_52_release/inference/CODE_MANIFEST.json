@@ -1,0 +1,23 @@
+{
+  "files_sha256": {
+    "assets.manifest.json": "910140fec47e8fc4952072317675825ce6b6cca9aef25e6880d583b0e305c908",
+    "baseline50/__init__.py": "9430f99a1f5bc998a0e304e0f4c889f9ec5ace8d7cf031b4331f821cad307631",
+    "baseline50/__main__.py": "7c86b1281643b718915bfa2a6489fc97ca04932e696d169d233840f5e09a7025",
+    "baseline50/actor.py": "b3df06d870c1e5f25ec3bda0461f77b1ed2faa9e3405dfea4bbebeade6011e22",
+    "baseline50/asr.py": "5651b2e2d84be9a684b1c3c0754db4195dc69afbd746c0cd2ab20e4fd5ada336",
+    "baseline50/backend.py": "7f41a6087c76203592522c421558d2f4900aa53108b6eb964a21d24703d4d47d",
+    "baseline50/io.py": "92643784e3e2de08afbe1fff68beec58e9f8ca9d0c8ebe9df1cc5659e83b6d82",
+    "baseline50/policy.py": "8a1e4d89ee57d7550117da4e0d44791050b29bc39dd6e8dde5c104844e59a66d",
+    "baseline50/prompt.py": "0af082a87d1ef0ca22ce996e94775a8963ce8944ef3d4c6eacb92fd4b77a0d1b",
+    "baseline50/release.py": "6b9fa95ee2f49b8f54de04b32cab245dc9ce75ea6251a424ca4899ec37135bb2",
+    "baseline50/run.py": "a608e0257d4f827bd056d74790306c79f90b3f8363f5a599d59b59b1d73b83a6",
+    "baseline50/scoring.py": "5bef9f2c416bacfd71d698662630ac0e4b493a79d0f998d30028dd7c7abce01a",
+    "baseline50/temporal.py": "8536368d1857400755e7b02d3c8dd78275a10640467c5370a3a8483a799db359",
+    "config.example.json": "931894c486c9346dd27cbd3857dfc3fe2b17b4d77f5ecec78b3c09c52078939f",
+    "requirements-inference.lock.txt": "a6ccdf74784eefd1ae9e4c5dbf61b661f3a5140cfd4766ceabdafe7af0853862",
+    "RUNTIME.json": "625417cac082f79fc6d6164f7e0b5ebe6cf4ac182572904967dac87845805bc9",
+    "SOLUTION_DESCRIPTION.txt": "1f3d6683c753c27c7f84c1165c9095f0f3090c759f2b40aa5b478cf3a9ab76b3",
+    "SOLUTION_DESCRIPTION_TEMPLATE.txt": "b5734aeaba4257957e72868a33bb32cd123c0409628756dd07d9743069b62f16",
+    "SOURCE_PROVENANCE.json": "99cdaf6772e0c91fb893cad4f0d9fe079f36d5fe7196487ed1bd557c88576b2f"
+  }
+}

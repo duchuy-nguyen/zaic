@@ -1,0 +1,17 @@
+{
+  "preferences_sha256": "2eada4d1af88af448a8e113da71ab3563c72e68d5e1c708c80e43518adcaf13b",
+  "review_sha256": "8953a163617ea239b6ecedb85d36db178c0b314473ecd643e5c396c95bddb2e3",
+  "data_files_sha256": {
+    "data/full_replay_pool.jsonl": "f134eb621808fa041b947ecbab292d6b0776dd0dbc27fc019807bef6c2d03403",
+    "data/preferences.jsonl": "2eada4d1af88af448a8e113da71ab3563c72e68d5e1c708c80e43518adcaf13b",
+    "data/preferences_tokens.jsonl": "d244e9b31046ad4e67e5d2aa2aada74966442ddc05165e4d541652c20cb38bfe",
+    "data/preference_pool.jsonl": "8416e46a7edc2066ba539d62d30b852c02cfdd190f5e773d5c0e9a8e4b1c54e4",
+    "data/replay.jsonl": "c3b03bb80c9b4df49b67d73122e203707be543250136d874ce801458ce7898da",
+    "data/replay_tokens.jsonl": "0165cf92dcb8ddd23fc4da18fb05a5c51dfcb7fb753ee0b1ea2e49626b2edd01"
+  },
+  "frozen_draft_pairs": 64,
+  "approved_pairs": 63,
+  "approved_replay_rows": 189,
+  "source_prepare_sha256": "435cb22957e92ee23c75ffe388ec2ec2a2fbe631bd786e0252b6a7b734c8d961",
+  "source_train_sha256": "a586347291d48e843643df6cd0eeeff2e624ff0a995b6da38f5cb22fc50f7532"
+}

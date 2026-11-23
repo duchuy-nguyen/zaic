@@ -1,0 +1,75 @@
+{
+  "baseline": "50.9",
+  "public_score": 50.9,
+  "score_source": "User reported BTC public score; no new submission made while packaging",
+  "qwen_base": "Qwen/Qwen3.5-4B",
+  "qwen_revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+  "qwen_sha256": "cb09b88189a7a1e001022b08eac0e7609c560cd3dee0bca37f9414a85f74a8b1",
+  "qwen_text_parameters": 4205751296,
+  "text_blocks": 32,
+  "asr_base": "vinai/PhoWhisper-large",
+  "asr_revision": "b9136a44b5f2ca664bd0b8f74baecf1715f6eeeb",
+  "asr_merged_files": {
+    "models/asr/added_tokens.json": {
+      "bytes": 2190,
+      "sha256": "be74cd1ee6cb7b56841f685c8c947ef92e8bc4d1498e3833aa9035352d88df78"
+    },
+    "models/asr/config.json": {
+      "bytes": 1304,
+      "sha256": "21f5e446a4e1efa01c2d2e8abffcfcdcea2b4322cc08c488367272b062bf60ed"
+    },
+    "models/asr/generation_config.json": {
+      "bytes": 4573,
+      "sha256": "2c7a7a6eb65e703143b7782b7579840fc619daa71f8f90c87cd91778c60ebaf1"
+    },
+    "models/asr/MERGE_PROVENANCE.json": {
+      "bytes": 349,
+      "sha256": "11894145d0100e447f14708e4dfa9b28ae35be500690e7e70abe174a7e7b586c"
+    },
+    "models/asr/merges.txt": {
+      "bytes": 493864,
+      "sha256": "78f27f801feb4283ae969d4cadacb28fc051b655647402b1a252c7079ea11c46"
+    },
+    "models/asr/model-00001-of-00002.safetensors": {
+      "bytes": 1997965496,
+      "sha256": "d97eab1c0fe1c7042fe6cd5cf26b160dfe8910adec936b41fa04a87c9b5b39ed"
+    },
+    "models/asr/model-00002-of-00002.safetensors": {
+      "bytes": 1088793488,
+      "sha256": "48810d64617b6cf0a5b55bae132168da2213feca268196b71e72810e7e4d7268"
+    },
+    "models/asr/model.safetensors.index.json": {
+      "bytes": 112901,
+      "sha256": "70a853c655fa478ba1936119633a3faf7e919c0fa475efbaf2b422de03efe010"
+    },
+    "models/asr/normalizer.json": {
+      "bytes": 54408,
+      "sha256": "6c40cc36b4bb9c5aa8be0ff9023ea4e78a3ab718b3490a1d9cd3cb7ec56f130f"
+    },
+    "models/asr/preprocessor_config.json": {
+      "bytes": 371,
+      "sha256": "e4449dfed25a2b4c054b6103753daebad3cfab42c1ac0421b3e5c621a4de22e1"
+    },
+    "models/asr/special_tokens_map.json": {
+      "bytes": 2333,
+      "sha256": "aa84bd013194e2bf2450397e49e656d8b8d9e1f971c0f1702409870b2cf14106"
+    },
+    "models/asr/tokenizer.json": {
+      "bytes": 3654002,
+      "sha256": "ef1cbdefa54ee88b08dccac83fc994fa69e45988abf0f46fecfeb2e08ac9e306"
+    },
+    "models/asr/tokenizer_config.json": {
+      "bytes": 21520,
+      "sha256": "a9e5b24fe4e3f51c475990c3b08dceffa4ae183da2140f349f5a4d9eed980db4"
+    },
+    "models/asr/vocab.json": {
+      "bytes": 835550,
+      "sha256": "8f680bba319e01a653d2e8a5dbc17a9157179e0576e6ce74ce0c06356c6e24f9"
+    }
+  },
+  "asr_parameters": 1543304960,
+  "total_deployed_parameters": 5749056256,
+  "no_extra_pruning": true,
+  "source_assets_manifest_sha256": "01fe6d5e2431c565f4ab20ae89fc05f3342d5273d07c6fb409dfdfefc286c8b2",
+  "actual_weights_in_this_folder": false
+}

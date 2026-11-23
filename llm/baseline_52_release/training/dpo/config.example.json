@@ -1,0 +1,8 @@
+{
+  "private_dpo_dir": "PATH_OUTSIDE_GIT/training_dpo52",
+  "private_base_dir": "PATH_OUTSIDE_GIT/training_base50_9",
+  "inference_assets_dir": "PATH_OUTSIDE_GIT/inference52_assets",
+  "work_dir": "PATH_OUTSIDE_GIT/new_dpo_reproduction",
+  "qwen_base_dir": "PATH_TO_PINNED_QWEN35_SNAPSHOT",
+  "asr_base_dir": "PATH_TO_PINNED_PHOWHISPER_LARGE_SNAPSHOT"
+}

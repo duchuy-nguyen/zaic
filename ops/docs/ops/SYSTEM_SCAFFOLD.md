@@ -1,5 +1,9 @@
 # Khung inference LifeMate
 
+Baseline mới `llm/baseline_50_2` có [bridge riêng](BASELINE50_BRIDGE.md) để giữ
+nguyên actor/prompt/retrieval và ASR batch. Không chỉ thay transport của scaffold
+rồi coi là cùng baseline. CLI dưới đây hỗ trợ factory context manager và smoke cap.
+
 Khung nằm trong `ops/src/lifemate/system/`, dùng lại Runner và adapters hiện có. Chạy demo không cần GPU, network, weights hoặc data BTC. Đây là khung có thể tích hợp, chưa phải solution đã chứng nhận trên Kaggle/A30.
 
 ## Chạy ngay bằng fixture

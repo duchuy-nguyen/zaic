@@ -1,0 +1,39 @@
+{
+  "dataset_sha256": "8c24380c7530400350985eba3b6f3a234b343528a9b3580798fb4f97b2f0c6ed",
+  "static": {
+    "records": 551,
+    "error_count": 0,
+    "review_count": 0,
+    "advisory_count": 0,
+    "training_ready": false
+  },
+  "replay": {
+    "records": 551,
+    "replayed": 473,
+    "zero_call_structure_valid": 78,
+    "errors": [],
+    "runtime_source_commit": "cd97dedff1b169350248a0617b183df73b17eb7f",
+    "runtime_from_archive": false,
+    "states_from_archive": true
+  },
+  "manual_review_of_original_release": {
+    "T2_read": 23,
+    "additional_sampled": 18,
+    "unresolved_quarantined_ids": [
+      "synth_v21_t2_00016"
+    ],
+    "independent_adjudication": false
+  },
+  "source_audit": {
+    "rows": 167,
+    "completed_verdicts": 0
+  },
+  "not_checked": [
+    "semantic_adjudication_for_all_records",
+    "runtime_schema_and_replay",
+    "initial_state_provenance",
+    "audio_text_alignment_and_ASR_realism",
+    "training_impact_on_heldout_val",
+    "original_train_text_history_label_and_VAL_leakage_checks"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "public_audit": true,
+  "inference_core_byte_identical": true,
+  "wrapper_AST_same_except_display_and_provenance": true,
+  "all_five_archives_outer_and_member_hashes_verified": true,
+  "archive_member_count": 6483,
+  "unpack_and_inference_check_309_VAL_634_public_SDK": true,
+  "DPO_DATA_reconstruction_byte_equal_six_files": true,
+  "DPO_active_sources_TRAIN_only": true,
+  "historical_base_data_parity_previously_verified": true,
+  "final63_full_checkpoint_verified_without_pickle_load": true,
+  "no_new_training_started": true,
+  "no_new_GPU_inference_or_merge": true,
+  "Linux_Docker_built_or_tested": false,
+  "original_campaign_completed": true,
+  "old_releases_preserved": true,
+  "uploaded_or_pushed": false,
+  "portable_training_guards_CPU_checked": true,
+  "description_matches_actual52": true,
+  "source_guard_data_path_normalization": true
+}

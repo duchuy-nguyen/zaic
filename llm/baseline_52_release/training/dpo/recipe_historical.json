@@ -1,0 +1,19 @@
+{
+  "seed": 20261115,
+  "steps": 64,
+  "learning_rate": 2e-06,
+  "beta": 0.1,
+  "replay_weight": 1.0,
+  "replay_per_step": 3,
+  "dropout_disabled": true,
+  "reference": "baseline50.9 original adapter, precomputed NF4/BF16 log probabilities",
+  "rank": 16,
+  "alpha": 32,
+  "save_every_steps": 10,
+  "retain_all_checkpoints": true,
+  "objective": "Step-DPO + mean of3 original SFT replay CE losses per optimizer update; exact memory-bounded DPO chain-rule gradient.",
+  "no_VAL_or_public_training": true,
+  "no_ASR_or_actor_changes": true,
+  "no_external_upload": true,
+  "public_gate": "Generate a local submission after valid complete trial/audits, even if DEV delta is negative; user chooses whether to upload."
+}

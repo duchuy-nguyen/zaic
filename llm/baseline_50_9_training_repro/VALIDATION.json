@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "cpu_syntax_and_imports": true,
+  "prepare_helper_AST_matches": {
+    "demo_for": true,
+    "noisy_row": true,
+    "clips_for": true
+  },
+  "full_private_archive_checksums_and_audio": true,
+  "prepared_model_inputs_byte_equal": {
+    "train.jsonl": true,
+    "val.jsonl": true,
+    "train_asr_clips.json": true,
+    "val_asr_clips.json": true,
+    "retrieval_index.json": true,
+    "split.json": true,
+    "SYSTEM.txt": true,
+    "config.json": true
+  },
+  "token_cache_coverage_and_lengths": {
+    "train": {
+      "rows": 3906,
+      "max_length": 9932
+    },
+    "val": {
+      "rows": 963,
+      "max_length": 9896
+    }
+  },
+  "no_gpu_loaded": true,
+  "new_full_retraining_tested": false,
+  "new_merge_export_tested": false,
+  "linux_docker_tested": false,
+  "note": "Historical adapters and sources verified; no promise of bit-identical retraining on a different platform."
+}

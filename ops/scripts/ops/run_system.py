@@ -5,6 +5,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / 'llm'))
+sys.path.insert(0, str(ROOT / 'llm/baseline_50_2'))
 sys.path.insert(0, str(ROOT / 'ops/src'))
 from lifemate.system.cli import main
 

@@ -1,0 +1,12 @@
+{
+ "data": {
+  "archive_sha256": "57d371518996ec70d3af86402b7eba61208093c82955b9807a7ab39604b47320",
+  "split_name": "split-v1",
+  "split_manifest_sha256": "8c3a5f395fc95de1813483b42768bd7d29a9df691d67f5899708e4c509ce6a5e",
+  "catalog_sha256": "a994984bb580d7e0d60166641858901d428549682ba3614dbf9269037a33cce0"
+ },
+ "environment": {
+  "runtime_revision": "lifemate-v3.2.0/train/zaic_tools (catalog schema 2.7.0)",
+  "runtime_sha256": "8bb0a170da15f458b606d41665c82970389155b25c731708db0f6bcdf81dc412"
+ }
+}

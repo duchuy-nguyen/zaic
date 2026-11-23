@@ -1,0 +1,21 @@
+{
+  "source_experiment": "llm/experiments/qwen35_decision_dpo_20261115",
+  "inference_core_byte_identical_sha256": {
+    "baseline50/actor.py": "b3df06d870c1e5f25ec3bda0461f77b1ed2faa9e3405dfea4bbebeade6011e22",
+    "baseline50/asr.py": "5651b2e2d84be9a684b1c3c0754db4195dc69afbd746c0cd2ab20e4fd5ada336",
+    "baseline50/backend.py": "7f41a6087c76203592522c421558d2f4900aa53108b6eb964a21d24703d4d47d",
+    "baseline50/policy.py": "8a1e4d89ee57d7550117da4e0d44791050b29bc39dd6e8dde5c104844e59a66d",
+    "baseline50/prompt.py": "0af082a87d1ef0ca22ce996e94775a8963ce8944ef3d4c6eacb92fd4b77a0d1b",
+    "baseline50/scoring.py": "5bef9f2c416bacfd71d698662630ac0e4b493a79d0f998d30028dd7c7abce01a",
+    "baseline50/temporal.py": "8536368d1857400755e7b02d3c8dd78275a10640467c5370a3a8483a799db359"
+  },
+  "assets_manifest_sha256": "910140fec47e8fc4952072317675825ce6b6cca9aef25e6880d583b0e305c908",
+  "adaptations": [
+    "Own package verifier; display label/output filename only; asset pin is exact candidate52.",
+    "Operational inference policy same as deployed52; module name baseline50 retained for import compatibility.",
+    "Correct old model-unchanged metadata flag: actor policy unchanged, Qwen DPO weights changed."
+  ],
+  "source_run_sha256": "f7ff062d9c19119e859f04f03317dfa56570e3b65791b12a94189e06be1f1f01",
+  "packaged_run_sha256": "a608e0257d4f827bd056d74790306c79f90b3f8363f5a599d59b59b1d73b83a6",
+  "not_a_docker_build_or_inference_reexecution": true
+}

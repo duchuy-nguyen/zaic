@@ -1,0 +1,98 @@
+{
+ "bundle_version": "ops_train_smoke_v1",
+ "purpose": "OPS text smoke trên TRAIN thật (ToolEnvFactory split='train'); không phải submission/đánh giá chất lượng",
+ "source": {
+  "dataset": "lifemate-v3.2.0",
+  "split": "train",
+  "archive_file": "train+public_test.zip",
+  "archive_sha256": "57d371518996ec70d3af86402b7eba61208093c82955b9807a7ab39604b47320"
+ },
+ "split_name": "split-v1",
+ "split_manifest_sha256": "8c3a5f395fc95de1813483b42768bd7d29a9df691d67f5899708e4c509ce6a5e",
+ "train_fit_ids_sha256": "1de7723770defd36a05d7e2a22bdd2ce2178b2553dcbdf3f2a02c0ed56411427",
+ "sample_ids": [
+  "train_0168",
+  "train_0028",
+  "train_0677",
+  "train_1721",
+  "train_0960",
+  "train_0605",
+  "train_1437",
+  "train_0683",
+  "train_1634",
+  "train_1167",
+  "train_0655",
+  "train_1664"
+ ],
+ "all_in_TRAIN_FIT": true,
+ "categories": {
+  "train_0168": "write_only|h0",
+  "train_0028": "lookup_then_write|h0",
+  "train_0677": "lookup_then_write|h1-4",
+  "train_1721": "lookup_then_write|h5+",
+  "train_0960": "read_only|h0",
+  "train_0605": "ask_entity|h0",
+  "train_1437": "ask_entity|h1-4",
+  "train_0683": "ask_scalar|h0",
+  "train_1634": "ask_scalar|h5+",
+  "train_1167": "empty|h0",
+  "train_0655": "empty|h1-4",
+  "train_1664": "write_only|h5+"
+ },
+ "catalog_sha256": "a994984bb580d7e0d60166641858901d428549682ba3614dbf9269037a33cce0",
+ "catalog_schema_version": "2.7.0",
+ "runtime_revision": "lifemate-v3.2.0/train/zaic_tools (catalog schema 2.7.0)",
+ "runtime_sha256": "8bb0a170da15f458b606d41665c82970389155b25c731708db0f6bcdf81dc412",
+ "runtime_hash_rule": "sha256 over sorted files (excl. __pycache__, *.pyc): relpath\\0 len\\0 bytes",
+ "state_json_origin": "ToolEnv('train').get_state() + _meta dựng từ context; hash trùng phiên gốc (đã kiểm)",
+ "public_test": {
+  "n_ids": 634,
+  "catalog_sha256": "c8f46c278a7495d36905ac28fc5b85b67aad22bc2ac0b29ba9ac6455ad9daf5d",
+  "catalog_schema_version": "2.7.0",
+  "runtime_revision": "lifemate-v3.2.0/public_test/zaic_tools (catalog schema 2.7.0)",
+  "runtime_sha256": "8c5e229dd7eb144531b105824f599d4d842285c36ac4be5be5a14619ba837053",
+  "n_tools": 122,
+  "note": "runtime/env public_test lấy từ archive BTC (đúng archive_sha256); bundle không chứa public_test"
+ },
+ "toolenv_api_confirmed": {
+  "constructor": "ToolEnv(split, sample_id, root=<root>)  # root chứa <split>/<split>_tools_catalog.json, <split>/<split>_environment/<id>/state.json",
+  "validate": "env.validate(tool, args) -> {'ok', 'error'}  (không chạy)",
+  "call": "env.call(tool, args) -> dict có 'ok'; mọi call (cả lỗi) được log",
+  "submission_fields": "env.get_tool_calls(), env.get_state_hash()",
+  "train_only": "env.get_state() — chỉ debug/so label train; cấm trong đường inference",
+  "source": "zaic_tools/README.md + executor.Session (đã chạy thử)"
+ },
+ "evaluator": {
+  "version": "data-eval-v1",
+  "module": "data/src/lifemate/eval/scorer.py",
+  "references": "references_train_only/*.jsonl (id, tool_calls, state_hash) — không đưa vào inference",
+  "transcript_source": "inputs: gold_audio_text_train_only; public/private dùng ASR"
+ },
+ "files": {
+  "ids/expected_ids_fit.jsonl": "9289865abb2494e17cf62aa07ec677523790eec23736cb97037e5dc9a2ee115b",
+  "ids/expected_ids_public_test.jsonl": "d1190636a25f49be84375eefba7962c2768f4602cb63f1e9fc55abae237dd6bb",
+  "ids/expected_ids_smoke.jsonl": "d64227d53caf6c0ecc05bca10acc8af804f704b6a5386463c01845c176f618c2",
+  "ids/expected_ids_val.jsonl": "d3b09fcd8d96a6a4d52fd012ba6b2cdeeda42dff184a056d888a9101e007ce7b",
+  "inputs/inputs_smoke.jsonl": "792c4005b7a8658ba2bbf37b79f13586af992bb1f8536fb46211a33f931ad0c4",
+  "references_train_only/references_smoke.jsonl": "1387b8598c008465c56a4cdba30661228650585b1c8ebbbe1cad4db7ad4c6578",
+  "train/train_environment/train_0028/state.json": "8a1860363b258432d51fce74d6a26134f96e90919dca7ebc298a88bc42d1cf58",
+  "train/train_environment/train_0168/state.json": "b1a10e94f2647b428277bc0121eb22cc4e77234c60c22b46d907d3429011dce9",
+  "train/train_environment/train_0605/state.json": "b5aa01c2f6c0d271d33333ea141e62fc3312f41e7a9967aa63ee0a8f646a7203",
+  "train/train_environment/train_0655/state.json": "a28b0c0e36dfb299a891472db4fef07228bb55c48c80fe43bc15dbb515b9f806",
+  "train/train_environment/train_0677/state.json": "315af1df56460388532281d7bfee96e7b774c0214ec49999a03512f6f35da87d",
+  "train/train_environment/train_0683/state.json": "6a11d0cc802e3f29f5aa24df8669ddaf4c9acf227de2840041aa25a011ad6d6a",
+  "train/train_environment/train_0960/state.json": "8afa331849529e17e5ea2f9d2b3a59a535d828139b4f010f9f5d1e796d320488",
+  "train/train_environment/train_1167/state.json": "8c72d3322b42aa3f98b70c262e4bd5a5b71a24e83b7b87efdab2c141a5d2d483",
+  "train/train_environment/train_1437/state.json": "436af5dea54b7c8ba2dbc03f87418f6e323fc8d8861e7831f952ece7f060c249",
+  "train/train_environment/train_1634/state.json": "49c490519e898aa2a3687dfb9a52baa0f2a51aad65fc76c417a41de8b4d4b7d6",
+  "train/train_environment/train_1664/state.json": "c0581f8cd69f158053fd60aebe7044512dff9d380a06b021d7d8d12e54d60b76",
+  "train/train_environment/train_1721/state.json": "9c652f53523ef625d6c6bb16ea655f245b515b0a48866804d1f89d33b9c7f087",
+  "train/train_tools_catalog.json": "a994984bb580d7e0d60166641858901d428549682ba3614dbf9269037a33cce0",
+  "verify_bundle.py": "d6ee498813b0c95f1331f5cc9ce238dc7b725f7022997e9b64080fda55db688c"
+ },
+ "usage_rules": [
+  "label/state chỉ dùng để so sánh trong test, không đưa vào input model",
+  "mỗi process chỉ load một zaic_tools: đưa <bundle>/train lên PYTHONPATH",
+  "dữ liệu BTC: không đưa lên git, phân phối qua Drive của đội"
+ ]
+}

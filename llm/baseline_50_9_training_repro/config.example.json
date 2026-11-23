@@ -1,0 +1,8 @@
+{
+  "private_dir": "PATH_OUTSIDE_GIT/private_training",
+  "work_dir": "PATH_OUTSIDE_GIT/reproduction_new_work",
+  "qwen_base_dir": "PATH_TO_PINNED_QWEN35_SNAPSHOT",
+  "asr_base_dir": "PATH_TO_PINNED_PHOWHISPER_LARGE_SNAPSHOT",
+  "qwen_processor_dir": "PATH_TO_NEW_QWEN_RUN/processor",
+  "asr_processor_dir": "PATH_TO_NEW_ASR_RUN/processor"
+}

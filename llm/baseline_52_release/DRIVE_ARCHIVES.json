@@ -1,0 +1,29 @@
+{
+  "files": {
+    "01_INFERENCE_MODELS_52.zip": {
+      "bytes": 5802361380,
+      "sha256": "8673e11731d5a7d2e838ffef89f5856d76453851a26add8d6bd29194693104d0",
+      "members": 19
+    },
+    "02_RUNTIME_WINDOWS.zip": {
+      "bytes": 1201506936,
+      "sha256": "0ab9bb0261d479733659d6a233c749be64af5ad1d5f9fe3a82203cf4ff6ed6bf",
+      "note": "Byte-identical verified parent inference runtime archive"
+    },
+    "03_TRAINING_BASE50_9.zip": {
+      "bytes": 2775709761,
+      "sha256": "33373adfe686d821c0c771b01a10e3e90dd7e63fc324d7dc2561ffd133012498",
+      "note": "Byte-identical verified base-to-parent training bundle"
+    },
+    "04_TRAINING_DPO52.zip": {
+      "bytes": 3399930234,
+      "sha256": "93f13be69a859a4aff7d0aff33a1d9b5a81aefa6a65002586107e01f21f5ff62",
+      "members": 558
+    },
+    "05_EVALUATION_AND_SUBMISSION.zip": {
+      "bytes": 11721520,
+      "sha256": "2d584199a507b4f659bfa3fb9390eefc69e3d1ebaf689d7fd183cd56d3ff9bce",
+      "members": 634
+    }
+  }
+}

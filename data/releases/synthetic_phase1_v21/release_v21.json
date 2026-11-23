@@ -1,0 +1,68 @@
+{
+ "release_version": "synthetic_phase1_v21",
+ "supersedes": [
+  "synthetic_phase1_v2 (331, sha256 b27d7e38...)",
+  "synthetic_phase1_v2_filtered_311 (OPS)"
+ ],
+ "id_prefix": "synth_v21_",
+ "records": 552,
+ "by_technique": {
+  "t1_zero_action": 78,
+  "t2_state_mutation": 23,
+  "t3_param_removal": 84,
+  "t4_asr_noise": 367
+ },
+ "pool": {
+  "t1_zero_action": 191,
+  "t2_state_mutation": 23,
+  "t3_param_removal": 84,
+  "t4_asr_noise": 367
+ },
+ "mix_cap": 1.3,
+ "fit_pct": {
+  "action": 78.8,
+  "ask": 14.0,
+  "empty": 7.2
+ },
+ "fit_plus_synthetic_pct": {
+  "action": 75.0,
+  "ask": 15.7,
+  "empty": 9.3
+ },
+ "dataset_sha256": "968a2f3153f0e39ece215d816b12c3178cf67c1dac1e9e54b045a1513939d062",
+ "split_manifest_sha256": "8c3a5f395fc95de1813483b42768bd7d29a9df691d67f5899708e4c509ce6a5e",
+ "train_fit_ids_sha256": "1de7723770defd36a05d7e2a22bdd2ce2178b2553dcbdf3f2a02c0ed56411427",
+ "confusion_sha256": "c3a4fee8ea708d9c991870987b213507adedb93ca6bf59e1e8cb2ba8fe658e7a",
+ "validation": {
+  "error_count": 0,
+  "checks": [
+   "C1_structure",
+   "C2_schema",
+   "C3_no_syn",
+   "C4_phone",
+   "C5_leak_source_and_VAL_text",
+   "C6_dup",
+   "C7_replay_results_and_final_state",
+   "C8_state_provenance_vs_train_source",
+   "C9_semantic_rules",
+   "C10_audio_text_alignment",
+   "C11_t2_natural_clone"
+  ],
+  "replay": "all_records_with_calls",
+  "not_checked": [
+   "full_independent_semantic_adjudication (xem audit_phase1.csv)",
+   "training_quality_on_VAL"
+  ]
+ },
+ "text_only_records": 451,
+ "text_only_rule": "t3_param_removal và t4_asr_noise: audio_text khác WAV -> chỉ train text, không train ASR/audio",
+ "policy": [
+  "t2: chỉ nhân đôi TÊN RIÊNG trơn (như train: Minh/Lan/Hương); bản sao khác id + phone + relation",
+  "t2: bỏ mẫu có từ chỉ vai trò quanh tên trùng/khớp relation (OPS: synth_t2_00014, synth_t2_00047)",
+  "t2: không sinh bản sao chỉ-khác-ID (OPS loại 18 mẫu kiểu này)",
+  "t4: tối đa 2 biến thể / câu nguồn, mỗi biến thể đổi một token gốc khác nhau"
+ ],
+ "data_location": "Drive ZAIC/data/synthetic_phase1_v21 (không để data trên git)",
+ "full_semantic_quality_certified": false,
+ "semantic_audit": "synthetic/audit_phase1.csv (toàn bộ t2, t3 + mẫu t4, t1) — cần người duyệt"
+}

@@ -1,0 +1,30 @@
+{
+  "files": {
+    ".gitignore": "df443f27491f8f0fdd95742ac7f5e69a3f3409aca96df0e7c109d2fe833ef89e",
+    "audit_public.py": "5ab69d65e05f3437dfffa5b6334e7fa3833bfcaf2cd08fc72a032bf8010c7ab7",
+    "BASE_MODELS.json": "1e01af498cafa28b319919fe2c560b35b93db42649f1107d6d7df871933f8fdc",
+    "config.example.json": "ade4077fc8639cc4e91c99214ed04a1485cb1e5bc661cf8465c2ba850e2e0000",
+    "CONVERTER_PIN.json": "cd5ffbc21e9428621baef6f42dc8869cbb7dd0e664f4bb3df1ac9ccf3d8b2780",
+    "ENVIRONMENT.json": "8d17351057ff483a1c6dc82ea7b5bf5a80d41eab0b7dd13dd6ad03cf11c2bcf5",
+    "EXPECTED_ARTIFACTS.json": "c2df995a7df4d92451032e4375c241811e2371287304d548a9995c136238f73f",
+    "MODEL_IDENTITY.json": "181b64f1f687ab1ad77eb95f7806cc2d8aefb86396da32255f0bfaa1a595c900",
+    "PROVENANCE.json": "9664e259d481af44a92dd0b8a7c76b07e66214be61c544e3580ad08e990d3d4f",
+    "README.md": "a2f91fc2fbb7813382cb5d1c2022ac8e6571c231f671da721ad99032cc58382b",
+    "reproduce.py": "ef3838739f2e1509967799af4ec0133fddfe0a9326ba09e434e62c015e0bfafb",
+    "requirements-training.txt": "2b436cda3165444092959c936e505058b491325378367d8abcd5135d6dba6dd3",
+    "train_core/__init__.py": "dbd919fb0fce4bade23eaf8758bc63b0c950088ba6b9d67eef2b376928ac0277",
+    "train_core/artifact_io.py": "4d1f7c5ba90035f123a6126341017517cc4b838291a035ca8da85e98b6e30e2c",
+    "train_core/asr_training_policy.py": "fcd772f071d72f37d4493209985e5d6d64a45a6ec307b288a73d4094b941f747",
+    "train_core/completion_loss.py": "a0fa6ad7d57a2409a7ec9e07b22453625ff7d01d977b141a0ebc286066c76dbc",
+    "train_core/efficient_attention.py": "a2de04425d0042c0d0a81ec5dc4e73611a2341cf3aaae08396623167fcd6461b",
+    "train_core/input_agent.py": "99c91a8382e82b57ce0dc606ab7807b903ad0c2d10f4fa2c0f01149d9b9d23e6",
+    "train_core/input_view.py": "05e1ad262846a8656ec19facafa6ae69cab4a61b949e50dd7e8f5b1939446863",
+    "train_core/phowhisper_large_training.py": "d09b70e78702a10b9d7dd37df2ba845c1fa5d6e8351f4d9f4fea49c546e2d0dd",
+    "train_core/prepare.py": "fc04bdbbac6ba5bce717c8b45cfe189f7f6ff485665cd187bb41bcb81957ead8",
+    "train_core/qwen35_training.py": "ee138d137c51d5ff1164f454f9beea610bdb0b4ed999de5a54f9f1801bbb4531",
+    "train_core/qwen_training_policy.py": "fcd772f071d72f37d4493209985e5d6d64a45a6ec307b288a73d4094b941f747",
+    "train_core/sft_examples.py": "568058a0ab967a8ae7102805a9629dbcf9278110430f6ed1a1a711cf3e3f2284",
+    "train_core/tokenization.py": "fd755e1783ea92fbff5da53d0bd5d77aa5355d7a5f43e5e550e40bb3734bf4d1",
+    "training_recipe.json": "46b56b01fb74daf3229e3cfe66789c1c8b4f5d0a53b6e514db7961ed384698c9"
+  }
+}

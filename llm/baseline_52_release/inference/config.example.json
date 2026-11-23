@@ -1,0 +1,6 @@
+{
+  "assets_dir": "private_assets",
+  "dataset_dir": "official/train+public_test",
+  "output_dir": "outputs",
+  "llama_server": "private_assets/runtime/llama-server.exe"
+}

@@ -1,5 +1,6 @@
 """Prepared JSONL entrypoint. Plugins supply pinned ASR/model/ToolEnv adapters."""
 import argparse
+from contextlib import ExitStack
 import importlib
 import json
 from pathlib import Path
@@ -76,13 +77,21 @@ def main(argv=None):
     parser.add_argument('--factory', required=True, help='Trusted module:factory returning LifeMateSystem')
     parser.add_argument('--input', required=True, type=Path, help='Prepared text/audio JSONL, not raw BTC rows')
     parser.add_argument('--output-dir', required=True, type=Path, help='New private directory; never overwritten')
+    parser.add_argument('--max-samples', type=int, help='Optional smoke cap; reject larger input before loading models')
     args = parser.parse_args(argv)
     module, name = args.factory.split(':', 1)
     samples = load_samples(args.input)
-    system = getattr(importlib.import_module(module), name)()
-    if not isinstance(system, LifeMateSystem):
-        raise TypeError('Factory must return LifeMateSystem')
-    manifest = run_batch(system, samples, args.output_dir)
+    if args.max_samples is not None and (args.max_samples <= 0 or len(samples) > args.max_samples):
+        raise ValueError('Input exceeds requested smoke sample cap')
+    if args.output_dir.exists():
+        raise FileExistsError('Output directory already exists')
+    with ExitStack() as stack:
+        system = getattr(importlib.import_module(module), name)()
+        if hasattr(system, '__enter__') and hasattr(system, '__exit__'):
+            system = stack.enter_context(system)
+        if not isinstance(system, LifeMateSystem):
+            raise TypeError('Factory must return LifeMateSystem or a context manager yielding one')
+        manifest = run_batch(system, samples, args.output_dir)
     print(json.dumps({k: manifest[k] for k in ('status', 'completed', 'failures')}))
     return 1 if manifest['failures'] else 0
 

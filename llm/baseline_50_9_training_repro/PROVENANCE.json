@@ -1,0 +1,25 @@
+{
+  "historical_sources": {
+    "qwen": {
+      "path": "llm/experiments/lifemate_v2_20261106/train_v2.py",
+      "sha256": "fd5c1161c82ae92c31c862e8d9a12697e414780441a2d91306921608b2aa2cda"
+    },
+    "asr": {
+      "path": "llm/experiments/qwen3_pholarge_recipe50_5_20261108/train_worker.py",
+      "sha256": "4936e842d806413db93ae22d08614b06c88fba02b1145abb4197322cee57e65d"
+    }
+  },
+  "changes": [
+    "Training functions are the branch-specialized source from baseline_50_9_verified; relative imports only.",
+    "Prepare keeps original generation functions; binds raw/split/noise roots explicitly and records current source hashes.",
+    "Only TRAIN-fit ASR mappings retained from old traces; no LLM predictions or VAL/public traces shipped.",
+    "New wrapper replaces old external-machine manifest guards with CODE_MANIFEST, PRIVATE_MANIFEST, expected data hashes, split and base file checks.",
+    "ASR raw-root binding changes one path expression in asr_dataset; extraction/collator/training mathematics unchanged.",
+    "Merge/export orchestration newly wrapped; original adapters/provenance/converter/quantizer supplied separately."
+  ],
+  "old_experiments_modified": false,
+  "weights_retrained_during_packaging": false,
+  "old_optimizer_resume_supported": false,
+  "historical_qwen_adapter_sha256": "7d04b7fd5feea6b92c230f4e710df25046a710c5d80ac9d8fe1f4e6dd73c93a5",
+  "historical_asr_adapter_sha256": "fed80cdce5969ac72b5eae98b4d4fe28bccc9fccae2d39db093e4aa800502662"
+}

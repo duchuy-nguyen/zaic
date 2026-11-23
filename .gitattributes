@@ -1,0 +1,3 @@
+# Release manifests hash exact bytes, including the original line endings.
+llm/baseline_52_release/** -text
+llm/baseline_50_9_training_repro/** -text

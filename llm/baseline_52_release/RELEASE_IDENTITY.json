@@ -1,0 +1,22 @@
+{
+  "release": "LifeMate-public52-20261116",
+  "public_score": 52.0,
+  "score_source": "User-reported portal result; not fetched independently",
+  "qwen_base": "Qwen/Qwen3.5-4B",
+  "qwen_revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+  "qwen_sha256": "aee8106ebe960c26e905443fedb3e8bd2e3a6c1218e63806892f849dbb8e512e",
+  "qwen_adapter_sha256": "ca1efa57fa770af2cd5d56ce0a85b4e92da493580a75f8e97640eb6167c2b648",
+  "asr_base": "vinai/PhoWhisper-large",
+  "asr_revision": "b9136a44b5f2ca664bd0b8f74baecf1715f6eeeb",
+  "parent_adapter_sha256": "7d04b7fd5feea6b92c230f4e710df25046a710c5d80ac9d8fe1f4e6dd73c93a5",
+  "source_submission_sha256": "d29fde98949835eba78a467fe676c6dd51be69a06b5c6f12330ac11dd3597db7",
+  "parameters": 5749056256,
+  "qwen_text_parameters": 4205751296,
+  "asr_parameters": 1543304960,
+  "parent_steps": 489,
+  "dpo_steps": 63,
+  "approved_pairs": 63,
+  "approved_replay_rows": 189,
+  "unchanged_asr": true,
+  "linux_docker_tested": false
+}

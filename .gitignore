@@ -62,3 +62,20 @@ LifeMate/manifests/
 data/synthetic/*.jsonl
 data/synthetic/*.json
 data/manifests/
+
+# Keep local weights, private datasets and experiments off GitHub.
+*.gguf
+*.onnx_data
+*.dll
+*.exe
+*.key
+*.pem
+*.jsonl
+/data/releases/**/*.csv
+/llm/experiments/
+/llm/analysis/
+/llm/handoffs/
+/llm/model_registry/
+/speech/experiments/
+/LifeMate/local_baseline/
+/LifeMate/kaggle/
